@@ -18,6 +18,7 @@ const WALL_JUMP_PUSH := 260.0
 @onready var attack_root: Node2D = $AttackRoot
 @onready var attack_1_hit_box: Area2D = $AttackRoot/Attack1HitBox
 @onready var attack_2_hit_box: Area2D = $AttackRoot/Attack2HitBox
+@onready var dash_attack_hit_box: Area2D = $AttackRoot/DashAttackHitBox
 
 var is_attacking := false
 var is_dashing := false
@@ -48,11 +49,17 @@ const ATTACK2_DAMAGE: int = 2
 const ATTACK2_HIT_START: float = 0.10
 const ATTACK2_HIT_DURATION: float = 0.14
 
+const DASH_ATTACK_DAMAGE: int = 3
+const DASH_ATTACK_HIT_START: float = 0.05
+const DASH_ATTACK_HIT_DURATION: float = 0.20
+
 var attack1_active: bool = false
 var attack2_active: bool = false
+var dash_attack_active: bool = false
 
 var attack1_already_hit: Dictionary = {} # instance_id -> true
 var attack2_already_hit: Dictionary = {} # instance_id -> true
+var dash_attack_already_hit: Dictionary = {} # instance_id -> true
 
 func _ready() -> void:
 	add_to_group("player")
@@ -63,9 +70,11 @@ func _ready() -> void:
 	# Hitboxes off by default
 	attack_1_hit_box.monitoring = false
 	attack_2_hit_box.monitoring = false
+	dash_attack_hit_box.monitoring = false
 
 	attack_1_hit_box.body_entered.connect(_on_attack1_hit_box_body_entered)
 	attack_2_hit_box.body_entered.connect(_on_attack2_hit_box_body_entered)
+	dash_attack_hit_box.body_entered.connect(_on_dash_attack_hit_box_body_entered)
 
 	# IMPORTANT: flip the whole attack rig with facing
 	attack_root.scale.x = facing
@@ -102,6 +111,12 @@ func _physics_process(delta: float) -> void:
 			if air_dash_available:
 				air_dash_available = false
 				start_dash()
+
+	# DASH ATTACK (attack button during dash)
+	if is_dashing and Input.is_action_just_pressed("attack1") and not is_attacking:
+		is_attacking = true
+		animated_sprite.play("dash_attack")
+		_start_dash_attack_hit_window()
 
 	# DASH active
 	if is_dashing:
@@ -175,6 +190,8 @@ func _physics_process(delta: float) -> void:
 		attack_1_hit_box.monitoring = false
 	if not attack2_active:
 		attack_2_hit_box.monitoring = false
+	if not dash_attack_active:
+		dash_attack_hit_box.monitoring = false
 
 	move_and_slide()
 
@@ -210,6 +227,22 @@ func _start_attack2_hit_window() -> void:
 	attack2_active = false
 	attack_2_hit_box.monitoring = false
 
+func _start_dash_attack_hit_window() -> void:
+	dash_attack_already_hit.clear()
+	dash_attack_active = false
+	dash_attack_hit_box.monitoring = false
+
+	await get_tree().create_timer(DASH_ATTACK_HIT_START).timeout
+	if not is_attacking or animated_sprite.animation != "dash_attack":
+		return
+
+	dash_attack_active = true
+	dash_attack_hit_box.monitoring = true
+
+	await get_tree().create_timer(DASH_ATTACK_HIT_DURATION).timeout
+	dash_attack_active = false
+	dash_attack_hit_box.monitoring = false
+
 func _on_attack1_hit_box_body_entered(body: Node) -> void:
 	if not attack1_active:
 		return
@@ -236,6 +269,19 @@ func _on_attack2_hit_box_body_entered(body: Node) -> void:
 	attack2_already_hit[id] = true
 	body.take_damage(ATTACK2_DAMAGE)
 
+func _on_dash_attack_hit_box_body_entered(body: Node) -> void:
+	if not dash_attack_active:
+		return
+	if not body.has_method("take_damage"):
+		return
+
+	var id := body.get_instance_id()
+	if dash_attack_already_hit.has(id):
+		return
+
+	dash_attack_already_hit[id] = true
+	body.take_damage(DASH_ATTACK_DAMAGE)
+
 func start_dash() -> void:
 	is_dashing = true
 	can_dash = false
@@ -247,22 +293,26 @@ func start_dash() -> void:
 	velocity.y = 0
 	velocity.x = dash_dir * DASH_SPEED
 
-	get_tree().create_timer(DASH_TIME).timeout.connect(func ():
-		is_dashing = false
-	)
+	await get_tree().create_timer(DASH_TIME).timeout
+	is_dashing = false
+	
+	velocity.x = 0
+	velocity.y = 0
 
 	get_tree().create_timer(DASH_COOLDOWN).timeout.connect(func ():
 		can_dash = true
 	)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite.animation == "attack1" or animated_sprite.animation == "attack2":
+	if animated_sprite.animation == "attack1" or animated_sprite.animation == "attack2" or animated_sprite.animation == "dash_attack":
 		is_attacking = false
 
 		attack1_active = false
 		attack2_active = false
+		dash_attack_active = false
 		attack_1_hit_box.monitoring = false
 		attack_2_hit_box.monitoring = false
+		dash_attack_hit_box.monitoring = false
 
 func take_damage(amount: int) -> void:
 	if invincible:
@@ -280,8 +330,10 @@ func take_damage(amount: int) -> void:
 	is_dashing = false
 	attack1_active = false
 	attack2_active = false
+	dash_attack_active = false
 	attack_1_hit_box.monitoring = false
 	attack_2_hit_box.monitoring = false
+	dash_attack_hit_box.monitoring = false
 
 	# Play "hit" animation (if present)
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("hit"):

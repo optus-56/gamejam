@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b68yy8l8b1u4s" path="res://assets/sprites/environment/Tiles.png" id="7_gnai3"]
 [ext_resource type="Texture2D" uid="uid://dn14utset5jpp" path="res://assets/sprites/environment/Background_0.png" id="8_i8kv5"]
 [ext_resource type="PackedScene" uid="uid://drrcabh8of5d8" path="res://scenes/mushroom.tscn" id="9_conm7"]
+[ext_resource type="PackedScene" uid="uid://bbm2dnhmxr4gf" path="res://scenes/bringer.tscn" id="10_d3jkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("2_conm7")
@@ -3395,7 +3396,7 @@ sources/14 = SubResource("TileSetAtlasSource_264po")
 [node name="Level1" type="Node2D" unique_id=627995753]
 
 [node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_bbk5w")]
-position = Vector2(-36, 2)
+position = Vector2(293, -238)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2069526503]
 position = Vector2(-5, -121)
@@ -3417,12 +3418,12 @@ layer_2/tile_data = PackedInt32Array(-1245188, 9, 0, -1179652, 9, 1, -1114116, 9
 layer_3/name = "fences"
 layer_3/tile_data = PackedInt32Array(-196620, 8, 15, -131084, 8, 16, -65548, 8, 17, -12, 8, 18, 65524, 8, 19, -196619, 65544, 15, -131083, 65544, 16, -65547, 65544, 17, -11, 65544, 18, 65525, 65544, 19, -196618, 131080, 15, -131082, 131080, 16, -65546, 131080, 17, -10, 131080, 18, 65526, 131080, 19, -196617, 196616, 15, -131081, 196616, 16, -65545, 196616, 17, -9, 196616, 18, 65527, 196616, 19, -196616, 8, 15, -131080, 8, 16, -65544, 8, 17, -8, 8, 18, 65528, 8, 19, -196615, 65544, 15, -131079, 65544, 16, -65543, 65544, 17, -7, 65544, 18, 65529, 65544, 19, -196614, 131080, 15, -131078, 131080, 16, -65542, 131080, 17, -6, 131080, 18, 65530, 131080, 19, -196613, 196616, 15, -131077, 196616, 16, -65541, 196616, 17, -5, 196616, 18, 65531, 196616, 19)
 
-[node name="Node" type="Node" parent="." unique_id=614487436]
+[node name="Mobs" type="Node" parent="." unique_id=614487436]
 
-[node name="Mushroom" parent="Node" unique_id=63053719 instance=ExtResource("9_conm7")]
+[node name="Mushroom" parent="Mobs" unique_id=63053719 instance=ExtResource("9_conm7")]
 z_index = 4
 position = Vector2(230, 3)
 
-[node name="Mushroom2" parent="Node" unique_id=647472348 instance=ExtResource("9_conm7")]
+[node name="Bringer" parent="Mobs" unique_id=579647565 instance=ExtResource("10_d3jkd")]
 z_index = 4
-position = Vector2(700, 3)
+position = Vector2(592, -233)
