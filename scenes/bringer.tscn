@@ -491,11 +491,11 @@ collision_mask = 5
 script = ExtResource("1_0b37x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292170573]
-position = Vector2(-33, -46)
+position = Vector2(-34, -47)
 sprite_frames = SubResource("SpriteFrames_7jtn7")
-animation = &"spell"
+animation = &"attack"
 autoplay = "idle"
-frame = 15
+frame = 7
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712697924]

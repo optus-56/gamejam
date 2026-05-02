@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqf8a73xcqjl8"
-path="res://.godot/imported/Mushroom-Attack.png-bf63d838b42b487a2c6799b8ac1f5176.ctex"
+uid="uid://q4k201vv3w2k"
+path="res://.godot/imported/yellowNinja - idle.png-f3ec8f8d798f8b31b56927aae9e8e5db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mobs/Mushroom-Attack.png"
-dest_files=["res://.godot/imported/Mushroom-Attack.png-bf63d838b42b487a2c6799b8ac1f5176.ctex"]
+source_file="res://assets/sprites/mobs/ninja/yellowNinja - idle.png"
+dest_files=["res://.godot/imported/yellowNinja - idle.png-f3ec8f8d798f8b31b56927aae9e8e5db.ctex"]
 
 [params]
 

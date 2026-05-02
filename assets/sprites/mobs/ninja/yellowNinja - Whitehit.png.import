@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://osiby8a5wmgp"
-path="res://.godot/imported/Mushroom-Die.png-6292a6776ce2c3f498770a3d205b3f27.ctex"
+uid="uid://4tn2um3wri77"
+path="res://.godot/imported/yellowNinja - Whitehit.png-e5dd15ec63380ba393d035df2858d0bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mobs/Mushroom-Die.png"
-dest_files=["res://.godot/imported/Mushroom-Die.png-6292a6776ce2c3f498770a3d205b3f27.ctex"]
+source_file="res://assets/sprites/mobs/ninja/yellowNinja - Whitehit.png"
+dest_files=["res://.godot/imported/yellowNinja - Whitehit.png-e5dd15ec63380ba393d035df2858d0bb.ctex"]
 
 [params]
 

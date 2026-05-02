@@ -12,6 +12,9 @@ const WALL_SLIDE_SPEED := 120.0
 const WALL_JUMP_VELOCITY := -380.0
 const WALL_JUMP_PUSH := 260.0
 
+# Attack cooldown
+const ATTACK_COOLDOWN := 0.5
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # NEW tree: AttackRoot contains both hitboxes
@@ -23,6 +26,7 @@ const WALL_JUMP_PUSH := 260.0
 var is_attacking := false
 var is_dashing := false
 var can_dash := true
+var can_attack := true
 
 var facing := 1
 var dash_dir := 1
@@ -32,7 +36,7 @@ var last_wall_jump_side := 0
 
 # HP system
 var max_hp: int = 5
-var hp: int = 1
+var hp: int = 5
 var invincible: bool = false
 const IFRAME_TIME: float = 0.4
 
@@ -52,6 +56,7 @@ const ATTACK2_HIT_DURATION: float = 0.14
 const DASH_ATTACK_DAMAGE: int = 3
 const DASH_ATTACK_HIT_START: float = 0.05
 const DASH_ATTACK_HIT_DURATION: float = 0.20
+const DASH_ATTACK_COOLDOWN: float = 1.0
 
 var attack1_active: bool = false
 var attack2_active: bool = false
@@ -134,14 +139,16 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Attacks
-	if Input.is_action_just_pressed("attack1") and not is_attacking:
+	if Input.is_action_just_pressed("attack1") and not is_attacking and can_attack:
 		is_attacking = true
 		animated_sprite.play("attack1")
 		_start_attack1_hit_window()
-	elif Input.is_action_just_pressed("attack2") and not is_attacking:
+		_start_attack_cooldown()
+	elif Input.is_action_just_pressed("attack2") and not is_attacking and can_attack:
 		is_attacking = true
 		animated_sprite.play("attack2")
 		_start_attack2_hit_window()
+		_start_attack_cooldown()
 
 	# While attacking: stop movement and DO NOT run other animation logic
 	if is_attacking:
@@ -202,6 +209,11 @@ func _physics_process(delta: float) -> void:
 		dash_attack_hit_box.monitoring = false
 
 	move_and_slide()
+
+func _start_attack_cooldown() -> void:
+	can_attack = false
+	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
+	can_attack = true
 
 func _start_attack1_hit_window() -> void:
 	attack1_already_hit.clear()
@@ -359,7 +371,7 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	dead = true
-	Engine.time_scale = 0.1
+	Engine.time_scale = 1.0
 	
 	await get_tree().create_timer(1.0).timeout
 	

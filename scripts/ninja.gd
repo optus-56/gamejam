@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 const SPEED := 100
 const DAMAGE := 1
-const ATTACK_COOLDOWN := 0.8
+const ATTACK_COOLDOWN := 0.4
 
 # Damage will happen when the "attack" animation reaches this frame (0-based)
-const HIT_FRAME: int = 6
+const HIT_FRAME: Array[int] = [7, 8, 9]
 
 # HP + reactions
 var max_hp: int = 6
@@ -82,9 +82,10 @@ func _physics_process(_delta: float) -> void:
 
 		# Facing rule (sprite default faces LEFT; if yours differs, invert this)
 		if dir != 0.0:
-			animated_sprite.flip_h = player.global_position.x > global_position.x
+			animated_sprite.flip_h = player.global_position.x < global_position.x
+			_update_hitbox_position()
 
-		animated_sprite.play("run" if dir != 0.0 else "idle")
+		animated_sprite.play("walk" if dir != 0.0 else "idle")
 	else:
 		velocity.x = 0.0
 		animated_sprite.play("idle")
@@ -102,9 +103,17 @@ func _start_attack() -> void:
 
 	# Face player
 	if player != null:
-		animated_sprite.flip_h = player.global_position.x > global_position.x
+		animated_sprite.flip_h = player.global_position.x < global_position.x
+		_update_hitbox_position()
 
 	animated_sprite.play("attack")
+
+func _update_hitbox_position() -> void:
+	# Flip hitbox scale to match sprite direction
+	if animated_sprite.flip_h:
+		hitbox.scale.x = -1.0  # Facing left
+	else:
+		hitbox.scale.x = 1.0   # Facing right
 
 func _on_detect_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -134,7 +143,7 @@ func _on_frame_changed() -> void:
 	if dead or is_hurt:
 		return
 
-	if animated_sprite.frame == HIT_FRAME:
+	if animated_sprite.frame in HIT_FRAME:
 		did_hit_this_attack = true
 
 		# Deal damage only if still in range *at the hit frame*
@@ -161,7 +170,7 @@ func take_damage(amount: int) -> void:
 		return
 
 	hp = max(hp - amount, 0)
-	print("Bringer HP:", hp, "/", max_hp)
+	print("Ninja HP:", hp, "/", max_hp)
 
 	if hp <= 0:
 		die()
