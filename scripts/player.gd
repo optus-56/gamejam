@@ -32,7 +32,7 @@ var last_wall_jump_side := 0
 
 # HP system
 var max_hp: int = 5
-var hp: int = 5
+var hp: int = 1
 var invincible: bool = false
 const IFRAME_TIME: float = 0.4
 
@@ -61,6 +61,9 @@ var attack1_already_hit: Dictionary = {} # instance_id -> true
 var attack2_already_hit: Dictionary = {} # instance_id -> true
 var dash_attack_already_hit: Dictionary = {} # instance_id -> true
 
+var spawn_position: Vector2 = Vector2.ZERO
+var dead: bool = false
+
 func _ready() -> void:
 	add_to_group("player")
 
@@ -78,8 +81,13 @@ func _ready() -> void:
 
 	# IMPORTANT: flip the whole attack rig with facing
 	attack_root.scale.x = facing
+	
+	spawn_position = global_position
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
+	
 	# If hit-stunned, lock control briefly and don't run normal logic
 	if is_hitstunned:
 		velocity.x = 0
@@ -350,5 +358,10 @@ func take_damage(amount: int) -> void:
 	invincible = false
 
 func die() -> void:
-	print("Player died")
-	queue_free()
+	dead = true
+	Engine.time_scale = 0.1
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
