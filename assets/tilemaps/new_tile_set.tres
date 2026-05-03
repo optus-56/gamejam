@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b68yy8l8b1u4s" path="res://assets/sprites/environment/Tiles.png" id="3_m8h50"]
 [ext_resource type="Texture2D" uid="uid://dov05mnk0l4j7" path="res://assets/sprites/environment/Dungeon Tile Set.png" id="4_4dmh1"]
 [ext_resource type="Texture2D" uid="uid://igjeu7oblep2" path="res://assets/sprites/environment/Water+.png" id="5_m8h50"]
+[ext_resource type="Texture2D" uid="uid://dsnw2pinwvtjc" path="res://assets/sprites/environment/doors.png" id="6_5bm54"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pb34"]
 texture = ExtResource("1_xmr1u")
@@ -2421,6 +2422,21 @@ texture = ExtResource("5_m8h50")
 1:13/0 = 0
 2:13/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qwryy"]
+texture = ExtResource("6_5bm54")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_7pb34")
@@ -2428,3 +2444,4 @@ sources/2 = SubResource("TileSetAtlasSource_385i6")
 sources/3 = SubResource("TileSetAtlasSource_m8h50")
 sources/4 = SubResource("TileSetAtlasSource_5bm54")
 sources/1 = SubResource("TileSetAtlasSource_snglc")
+sources/5 = SubResource("TileSetAtlasSource_qwryy")
