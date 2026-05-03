@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxa0vgyy3egai" path="res://scenes/ninja.tscn" id="9_u3awl"]
 [ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/king.tscn" id="12_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/knight.tscn" id="13_f31uk"]
+[ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/huntress.tscn" id="13_gnai3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("2_conm7")
@@ -3537,4 +3538,8 @@ position = Vector2(335, -606)
 
 [node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("13_f31uk")]
 z_index = 4
-position = Vector2(214, -233)
+position = Vector2(783, -241)
+
+[node name="huntress" parent="Mobs" unique_id=1462967430 instance=ExtResource("13_gnai3")]
+z_index = 4
+position = Vector2(158, -241)
