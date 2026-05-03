@@ -435,7 +435,7 @@ height = 42.0
 size = Vector2(54, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whl00"]
-size = Vector2(354.75, 20)
+size = Vector2(354.75, 141)
 
 [node name="Ninja" type="CharacterBody2D" unique_id=1689525233]
 collision_layer = 2
@@ -463,5 +463,5 @@ shape = SubResource("RectangleShape2D_5mk3q")
 [node name="Detect" type="Area2D" parent="." unique_id=1970597894]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=2106710838]
-position = Vector2(0, -11)
+position = Vector2(0, -71.5)
 shape = SubResource("RectangleShape2D_whl00")

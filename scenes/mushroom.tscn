@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://drrcabh8of5d8"]
 
 [ext_resource type="Script" uid="uid://dy3efq6ilisdm" path="res://scripts/mushroom.gd" id="1_6c3h1"]
-[ext_resource type="Texture2D" uid="uid://cqf8a73xcqjl8" path="res://assets/sprites/mobs/Mushroom-Attack.png" id="1_qxrkd"]
-[ext_resource type="Texture2D" uid="uid://b3bt71jivruw" path="res://assets/sprites/mobs/Mushroom-Idle.png" id="2_6c3h1"]
-[ext_resource type="Texture2D" uid="uid://osiby8a5wmgp" path="res://assets/sprites/mobs/Mushroom-Die.png" id="3_6rddh"]
-[ext_resource type="Texture2D" uid="uid://chdye4ldp7g86" path="res://assets/sprites/mobs/Mushroom-Run.png" id="3_f4pa7"]
-[ext_resource type="Texture2D" uid="uid://dasklheibyiau" path="res://assets/sprites/mobs/Mushroom-Hit.png" id="3_jekqn"]
+[ext_resource type="Texture2D" uid="uid://cqf8a73xcqjl8" path="res://assets/sprites/mobs/mushroom/Mushroom-Attack.png" id="1_qxrkd"]
+[ext_resource type="Texture2D" uid="uid://b3bt71jivruw" path="res://assets/sprites/mobs/mushroom/Mushroom-Idle.png" id="2_6c3h1"]
+[ext_resource type="Texture2D" uid="uid://osiby8a5wmgp" path="res://assets/sprites/mobs/mushroom/Mushroom-Die.png" id="3_6rddh"]
+[ext_resource type="Texture2D" uid="uid://chdye4ldp7g86" path="res://assets/sprites/mobs/mushroom/Mushroom-Run.png" id="3_f4pa7"]
+[ext_resource type="Texture2D" uid="uid://dasklheibyiau" path="res://assets/sprites/mobs/mushroom/Mushroom-Hit.png" id="3_jekqn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4pa7"]
 radius = 16.0
@@ -358,7 +358,7 @@ animations = [{
 radius = 23.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4pa7"]
-size = Vector2(293, 34)
+size = Vector2(293, 143)
 
 [node name="Mushroom" type="CharacterBody2D" unique_id=647472348]
 collision_layer = 2
@@ -390,5 +390,5 @@ shape = SubResource("CircleShape2D_jekqn")
 [node name="Detect" type="Area2D" parent="." unique_id=962770487]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=1725698858]
-position = Vector2(0, -17)
+position = Vector2(0, -71.5)
 shape = SubResource("RectangleShape2D_f4pa7")

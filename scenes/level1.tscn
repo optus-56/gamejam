@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dn14utset5jpp" path="res://assets/sprites/environment/Background_0.png" id="8_i8kv5"]
 [ext_resource type="PackedScene" uid="uid://drrcabh8of5d8" path="res://scenes/mushroom.tscn" id="9_conm7"]
 [ext_resource type="PackedScene" uid="uid://bxa0vgyy3egai" path="res://scenes/ninja.tscn" id="9_u3awl"]
-[ext_resource type="PackedScene" uid="uid://bbm2dnhmxr4gf" path="res://scenes/bringer.tscn" id="10_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/king.tscn" id="12_2ku1j"]
+[ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/knight.tscn" id="13_f31uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("2_conm7")
@@ -3499,7 +3499,7 @@ sources/14 = SubResource("TileSetAtlasSource_264po")
 
 [node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_bbk5w")]
 z_index = 4
-position = Vector2(-71, -3)
+position = Vector2(-80, -240)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2069526503]
 position = Vector2(-5, -121)
@@ -3531,14 +3531,10 @@ position = Vector2(1158, -612)
 z_index = 4
 position = Vector2(230, 3)
 
-[node name="Bringer" parent="Mobs" unique_id=579647565 instance=ExtResource("10_d3jkd")]
-z_index = 4
-position = Vector2(592, -233)
-
-[node name="Bringer2" parent="Mobs" unique_id=1695278768 instance=ExtResource("10_d3jkd")]
-z_index = 4
-position = Vector2(822, -234)
-
 [node name="king" parent="Mobs" unique_id=1687610751 instance=ExtResource("12_2ku1j")]
 z_index = 4
 position = Vector2(335, -606)
+
+[node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("13_f31uk")]
+z_index = 4
+position = Vector2(214, -233)

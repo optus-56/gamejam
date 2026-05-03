@@ -358,7 +358,7 @@ radius = 13.0
 height = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qhre"]
-size = Vector2(412, 49)
+size = Vector2(412, 197.5)
 
 [node name="king" type="CharacterBody2D" unique_id=1687610751]
 collision_layer = 2
@@ -386,7 +386,7 @@ polygon = PackedVector2Array(1, -1, 61, 3, 61, 3, 82, 8, 90, 14, 92, 17, 91, 21,
 [node name="Detect" type="Area2D" parent="." unique_id=2000849512]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=78695815]
-position = Vector2(0, -25)
+position = Vector2(0, -99.25)
 shape = SubResource("RectangleShape2D_7qhre")
 
 [node name="Attack2Hitbox" type="Area2D" parent="." unique_id=935691561]
