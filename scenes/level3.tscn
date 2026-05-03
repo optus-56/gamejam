@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/king.tscn" id="13_invaa"]
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/knight.tscn" id="14_88b2t"]
 [ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/huntress.tscn" id="15_0ydwj"]
-[ext_resource type="Script" uid="uid://bodts8n83tail" path="res://scripts/door1.gd" id="16_612gg"]
+[ext_resource type="Script" uid="uid://be3phhgdgeclv" path="res://scenes/door3.gd" id="17_y1e0c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4dsi"]
 texture = ExtResource("3_y1e0c")
@@ -3912,7 +3912,7 @@ script = ExtResource("1_a114e")
 
 [node name="Player" parent="." unique_id=1987826405 instance=ExtResource("2_y1e0c")]
 z_index = 4
-position = Vector2(844, -624)
+position = Vector2(-94, -239)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2069526503]
 position = Vector2(-5, -121)
@@ -3959,7 +3959,7 @@ position = Vector2(158, -241)
 
 [node name="Door" type="Area2D" parent="." unique_id=24659383]
 collision_layer = 4
-script = ExtResource("16_612gg")
+script = ExtResource("17_y1e0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1160387525]
 z_index = 2
