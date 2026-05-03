@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1j7vgkotax3y" path="res://assets/sprites/character/6 - dash.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bd18ou6yst5tc" path="res://assets/sprites/character/14 - hit.png" id="5_smehm"]
 [ext_resource type="Texture2D" uid="uid://bufbevuue71yu" path="res://assets/sprites/character/12 - dash attack.png" id="6_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://bslbwuv4jpa8o" path="res://assets/sprites/character/9 - idle-up-attack.png" id="10_3v2ag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
 atlas = ExtResource("3_tuyoq")
@@ -183,6 +184,22 @@ region = Rect2(2400, 0, 240, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(2640, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha2mi"]
+atlas = ExtResource("10_3v2ag")
+region = Rect2(0, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apa73"]
+atlas = ExtResource("10_3v2ag")
+region = Rect2(240, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74r1k"]
+atlas = ExtResource("10_3v2ag")
+region = Rect2(480, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8svfe"]
+atlas = ExtResource("10_3v2ag")
+region = Rect2(720, 0, 240, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
 atlas = ExtResource("3_dqkch")
@@ -405,6 +422,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ha2mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apa73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74r1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8svfe")
+}],
+"loop": true,
+"name": &"idle_attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_a38lo")
 }, {
 "duration": 1.0,
@@ -454,13 +488,6 @@ animations = [{
 radius = 7.0
 height = 40.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
-size = Vector2(72.5, 15)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
-radius = 13.39463
-height = 64.59988
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2wvv"]
 size = Vector2(60, 14)
 
@@ -472,9 +499,9 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=607292601]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
-animation = &"dash_attack"
+animation = &"attack2"
 autoplay = "idle"
-frame = 2
+frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=863253847]
@@ -486,17 +513,15 @@ shape = SubResource("CapsuleShape2D_oprun")
 [node name="Attack1HitBox" type="Area2D" parent="AttackRoot" unique_id=868125742]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRoot/Attack1HitBox" unique_id=492854220]
-position = Vector2(44.75, -8)
-shape = SubResource("RectangleShape2D_y4r1p")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackRoot/Attack1HitBox" unique_id=941014169]
+polygon = PackedVector2Array(-17, -13, 23, -15, 69, -14, 80, -9, 78, -6, 65, -2, 58, -3, 28, 0, 21, -2, 29, -7, 20, -12)
 
 [node name="Attack2HitBox" type="Area2D" parent="AttackRoot" unique_id=65584376]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRoot/Attack2HitBox" unique_id=1890009681]
-position = Vector2(14.999999, -26.000002)
-rotation = -1.1641346
-shape = SubResource("CapsuleShape2D_y4r1p")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackRoot/Attack2HitBox" unique_id=778535748]
+position = Vector2(-28, -20)
+polygon = PackedVector2Array(0, -1, 3, -13, 12, -21, 21, -24, 41, -22, 63, -14, 72, -1, 72, 10, 67, 16, 59, 21, 50, 17, 36, 10, 40, 4, 37, -3, 21, -7, -1, 1)
 
 [node name="DashAttackHitBox" type="Area2D" parent="AttackRoot" unique_id=2146402495]
 collision_mask = 2
@@ -504,5 +529,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRoot/DashAttackHitBox" unique_id=1100134652]
 position = Vector2(39, -8)
 shape = SubResource("RectangleShape2D_d2wvv")
+
+[node name="IdleAttackHitbox" type="Area2D" parent="AttackRoot" unique_id=716444496]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackRoot/IdleAttackHitbox" unique_id=1319215283]
+position = Vector2(-9, 0)
+polygon = PackedVector2Array(0, -1, 1, -14, 2, -38, 3, -53, 4, -63, 10, -72, 14, -66, 17, -55, 18, -45, 19, -36, 19, -23, 20, -9, 20, 1, 11, -11)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
