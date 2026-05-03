@@ -17,6 +17,11 @@ const ATTACK1_COOLDOWN := 0.6
 const ATTACK2_COOLDOWN := 0.7
 const DASH_ATTACK_COOLDOWN := 1.0
 
+# Health bar
+const HEALTH_BAR_WIDTH := 40
+const HEALTH_BAR_HEIGHT := 4
+const HEALTH_BAR_OFFSET_Y := -50  # Offset above the player
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # NEW tree: AttackRoot contains both hitboxes
@@ -32,6 +37,11 @@ var can_attack := true
 var attack1_ready := true
 var attack2_ready := true
 var dash_attack_ready := true
+
+# Cooldown tracking with start time
+var attack1_cooldown_start := 0.0
+var attack2_cooldown_start := 0.0
+var dash_attack_cooldown_start := 0.0
 
 var facing := 1
 var dash_dir := 1
@@ -217,6 +227,22 @@ func _physics_process(delta: float) -> void:
 		dash_attack_hit_box.monitoring = false
 
 	move_and_slide()
+	queue_redraw()
+
+func _draw() -> void:
+	# Draw health bar above the player
+	var bar_position = Vector2(-HEALTH_BAR_WIDTH / 2, HEALTH_BAR_OFFSET_Y)
+	
+	# Draw background (dark red)
+	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.DARK_RED)
+	
+	# Draw health (green)
+	var health_percentage = float(hp) / float(max_hp)
+	var health_width = HEALTH_BAR_WIDTH * health_percentage
+	draw_rect(Rect2(bar_position, Vector2(health_width, HEALTH_BAR_HEIGHT)), Color.GREEN)
+	
+	# Draw border (white)
+	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.WHITE, false, 2.0)
 
 func _notify_enemies_attacking(attacking: bool) -> void:
 	# Tell all enemies in the "enemy" group that we're attacking
@@ -226,16 +252,19 @@ func _notify_enemies_attacking(attacking: bool) -> void:
 
 func _start_attack1_cooldown() -> void:
 	attack1_ready = false
+	attack1_cooldown_start = Time.get_ticks_msec() / 1000.0
 	await get_tree().create_timer(ATTACK1_COOLDOWN).timeout
 	attack1_ready = true
 
 func _start_attack2_cooldown() -> void:
 	attack2_ready = false
+	attack2_cooldown_start = Time.get_ticks_msec() / 1000.0
 	await get_tree().create_timer(ATTACK2_COOLDOWN).timeout
 	attack2_ready = true
 
 func _start_dash_attack_cooldown() -> void:
 	dash_attack_ready = false
+	dash_attack_cooldown_start = Time.get_ticks_msec() / 1000.0
 	await get_tree().create_timer(DASH_ATTACK_COOLDOWN).timeout
 	dash_attack_ready = true
 
@@ -365,6 +394,7 @@ func take_damage(amount: int) -> void:
 
 	hp = max(hp - amount, 0)
 	print("Player took damage:", amount, "HP:", hp, "/", max_hp)
+	queue_redraw()
 
 	if hp <= 0:
 		die()

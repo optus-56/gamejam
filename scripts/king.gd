@@ -10,7 +10,7 @@ const GRAVITY := 800.0
 const HIT_FRAME: int = 2
 
 # Health bar
-const HEALTH_BAR_WIDTH := 60
+const HEALTH_BAR_WIDTH := 40
 const HEALTH_BAR_HEIGHT := 4
 const HEALTH_BAR_OFFSET_Y := -62  # Offset above the mob
 

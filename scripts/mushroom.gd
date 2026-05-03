@@ -8,7 +8,7 @@ const ATTACK_COOLDOWN := 0.8
 const HIT_FRAME: int = 6
 
 # Health bar
-const HEALTH_BAR_WIDTH := 50
+const HEALTH_BAR_WIDTH := 40
 const HEALTH_BAR_HEIGHT := 4
 const HEALTH_BAR_OFFSET_Y := -35  # Offset above the mob
 
