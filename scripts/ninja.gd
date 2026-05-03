@@ -31,6 +31,7 @@ var hitbox_target: Node = null
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var detect: Area2D = $Detect
+@onready var sfx: AudioStreamPlayer2D = $SFX
 
 func _ready() -> void:
 	hitbox.monitorable = false
@@ -127,6 +128,7 @@ func _start_attack() -> void:
 		_update_hitbox_position()
 
 	animated_sprite.play("attack")
+	sfx.play()
 
 func _update_hitbox_position() -> void:
 	# Flip hitbox scale to match sprite direction
@@ -225,5 +227,7 @@ func die() -> void:
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("death"):
 		animated_sprite.play("death")
 		await animated_sprite.animation_finished
+
+	get_tree().current_scene.mob_died()
 
 	queue_free()

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4tn2um3wri77" path="res://assets/sprites/mobs/ninja/yellowNinja - Whitehit.png" id="3_1pgge"]
 [ext_resource type="Texture2D" uid="uid://q4k201vv3w2k" path="res://assets/sprites/mobs/ninja/yellowNinja - idle.png" id="4_gottu"]
 [ext_resource type="Texture2D" uid="uid://du53yr3pr6qdt" path="res://assets/sprites/mobs/ninja/yellowNinja - walk.png" id="5_a08uq"]
+[ext_resource type="AudioStream" uid="uid://cyagaobcu83s" path="res://assets/SFX/spearattack2.mp3" id="7_1pgge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwrlm"]
 atlas = ExtResource("1_5krh3")
@@ -465,3 +466,7 @@ shape = SubResource("RectangleShape2D_5mk3q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=2106710838]
 position = Vector2(0, -71.5)
 shape = SubResource("RectangleShape2D_whl00")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=2101880344]
+stream = ExtResource("7_1pgge")
+bus = &"SFX"

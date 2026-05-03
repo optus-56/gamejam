@@ -207,4 +207,6 @@ func die() -> void:
 		animated_sprite.play("death")
 		await animated_sprite.animation_finished
 
+	get_tree().current_scene.mob_died()
+
 	queue_free()

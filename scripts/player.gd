@@ -29,6 +29,10 @@ const HEALTH_BAR_OFFSET_Y := -50  # Offset above the player
 @onready var attack_1_hit_box: Area2D = $AttackRoot/Attack1HitBox
 @onready var attack_2_hit_box: Area2D = $AttackRoot/Attack2HitBox
 @onready var dash_attack_hit_box: Area2D = $AttackRoot/DashAttackHitBox
+@onready var sword_slash_1: AudioStreamPlayer2D = $SFX/SwordSlash1
+@onready var sword_slash_2: AudioStreamPlayer2D = $SFX/SwordSlash2
+@onready var dash_attack: AudioStreamPlayer2D = $SFX/DashAttack
+@onready var walk: AudioStreamPlayer2D = $SFX/walk
 
 var is_attacking := false
 var is_dashing := false
@@ -143,6 +147,7 @@ func _physics_process(delta: float) -> void:
 	if is_dashing and Input.is_action_just_pressed("attack1") and not is_attacking and dash_attack_ready:
 		is_attacking = true
 		animated_sprite.play("dash_attack")
+		dash_attack.play()
 		_start_dash_attack_hit_window()
 		_start_dash_attack_cooldown()
 		_notify_enemies_attacking(true)
@@ -158,12 +163,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack1") and not is_attacking and can_attack and attack1_ready:
 		is_attacking = true
 		animated_sprite.play("attack1")
+		sword_slash_1.play()
 		_start_attack1_hit_window()
 		_start_attack1_cooldown()
 		_notify_enemies_attacking(true)
 	elif Input.is_action_just_pressed("attack2") and not is_attacking and can_attack and attack2_ready:
 		is_attacking = true
 		animated_sprite.play("attack2")
+		sword_slash_2.play()
 		_start_attack2_hit_window()
 		_start_attack2_cooldown()
 		_notify_enemies_attacking(true)
@@ -211,6 +218,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
+			walk.play()
 
 	# Movement
 	if direction:

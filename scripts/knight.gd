@@ -37,6 +37,7 @@ var is_falling: bool = false
 @onready var attack_1_hitbox: Area2D = $Attack1Hitbox
 @onready var attack_2_hitbox: Area2D = $Attack2Hitbox
 @onready var detect: Area2D = $Detect
+@onready var sfx: AudioStreamPlayer2D = $SFX
 
 func _ready() -> void:
 	add_to_group("enemy")
@@ -160,6 +161,7 @@ func _start_attack() -> void:
 	# Play current attack animation
 	var attack_name = "attack" + str(current_attack)
 	animated_sprite.play(attack_name)
+	sfx.play()
 	
 	# Cycle to next attack (1 -> 2 -> 1)
 	current_attack += 1
@@ -240,7 +242,7 @@ func take_damage(amount: int) -> void:
 		return
 
 	hp = max(hp - amount, 0)
-	print("King HP:", hp, "/", max_hp)
+	print("Knight HP:", hp, "/", max_hp)
 	queue_redraw()
 
 	if hp <= 0:
@@ -279,5 +281,7 @@ func die() -> void:
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("death"):
 		animated_sprite.play("death")
 		await animated_sprite.animation_finished
+
+	get_tree().current_scene.mob_died()
 
 	queue_free()

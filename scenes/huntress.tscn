@@ -10,26 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dxqwmchmuqq54" path="res://assets/sprites/mobs/huntress/Run.png" id="7_nm811"]
 [ext_resource type="Texture2D" uid="uid://ccgxjjawikmax" path="res://assets/sprites/mobs/huntress/Spear.png" id="8_mdrvu"]
 [ext_resource type="Texture2D" uid="uid://7cdvxkr6e303" path="res://assets/sprites/mobs/huntress/Spear move.png" id="9_ykuir"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgv8r"]
-atlas = ExtResource("1_2fdde")
-region = Rect2(0, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ir1f"]
-atlas = ExtResource("1_2fdde")
-region = Rect2(150, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_88g0l"]
-atlas = ExtResource("1_2fdde")
-region = Rect2(300, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w124x"]
-atlas = ExtResource("1_2fdde")
-region = Rect2(450, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hqeo"]
-atlas = ExtResource("1_2fdde")
-region = Rect2(600, 0, 150, 150)
+[ext_resource type="AudioStream" uid="uid://dsk62m5o5x7p0" path="res://assets/SFX/spearattack1.mp3" id="11_r0yu7"]
+[ext_resource type="AudioStream" uid="uid://cyagaobcu83s" path="res://assets/SFX/spearattack2.mp3" id="12_jnxwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1rf0"]
 atlas = ExtResource("2_c0ili")
@@ -49,6 +31,26 @@ region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjrly"]
 atlas = ExtResource("2_c0ili")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgv8r"]
+atlas = ExtResource("1_2fdde")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ir1f"]
+atlas = ExtResource("1_2fdde")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88g0l"]
+atlas = ExtResource("1_2fdde")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w124x"]
+atlas = ExtResource("1_2fdde")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hqeo"]
+atlas = ExtResource("1_2fdde")
 region = Rect2(600, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s34do"]
@@ -211,26 +213,6 @@ region = Rect2(180, 0, 60, 20)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rgv8r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ir1f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_88g0l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w124x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1hqeo")
-}],
-"loop": false,
-"name": &"attack1",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_i1rf0")
 }, {
 "duration": 1.0,
@@ -244,6 +226,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wjrly")
+}],
+"loop": false,
+"name": &"attack1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgv8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ir1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88g0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w124x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hqeo")
 }],
 "loop": false,
 "name": &"attack2",
@@ -418,7 +420,7 @@ script = ExtResource("1_c0ili")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112473583]
 position = Vector2(3, -23)
 sprite_frames = SubResource("SpriteFrames_wdcnt")
-animation = &"attack2"
+animation = &"attack1"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247550557]
@@ -446,3 +448,13 @@ polygon = PackedVector2Array(0, -1, 11, -11, 33, -18, 58, -14, 78, -1, 84, 21, 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=1635439974]
 position = Vector2(1, -63.5)
 shape = SubResource("RectangleShape2D_c0ili")
+
+[node name="SFX" type="Node" parent="." unique_id=1105410334]
+
+[node name="Attack1SFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=769489542]
+stream = ExtResource("11_r0yu7")
+bus = &"SFX"
+
+[node name="Attack2SFX" type="AudioStreamPlayer2D" parent="SFX" unique_id=1496863948]
+stream = ExtResource("12_jnxwc")
+bus = &"SFX"

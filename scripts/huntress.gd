@@ -49,6 +49,8 @@ var is_falling: bool = false
 @onready var attack_2_hitbox: Area2D = $Attack2Hitbox
 @onready var attack_3_hitbox: Area2D = $Attack3Hitbox
 @onready var detect: Area2D = $Detect
+@onready var attack_1sfx: AudioStreamPlayer2D = $SFX/Attack1SFX
+@onready var attack_2sfx: AudioStreamPlayer2D = $SFX/Attack2SFX
 
 func _ready() -> void:
 	add_to_group("enemy")
@@ -239,6 +241,7 @@ func _start_attack() -> void:
 	
 	print("Huntress melee attack: ", attack_name, " Distance: ", _get_distance_to_player())
 	animated_sprite.play(attack_name)
+	attack_1sfx.play()
 
 func _update_hitbox_position() -> void:
 	var scale_value = -1.0 if animated_sprite.flip_h else 1.0
@@ -360,5 +363,7 @@ func die() -> void:
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("death"):
 		animated_sprite.play("death")
 		await animated_sprite.animation_finished
+		
+	get_tree().current_scene.mob_died()
 
 	queue_free()

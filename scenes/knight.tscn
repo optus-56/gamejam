@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ceyaifh8hndbp" path="res://assets/sprites/mobs/Knight/Take Hit.png" id="4_14u3r"]
 [ext_resource type="Texture2D" uid="uid://dj41pwruaub2p" path="res://assets/sprites/mobs/Knight/Idle.png" id="5_3cm67"]
 [ext_resource type="Texture2D" uid="uid://dkvoh00sfo1eu" path="res://assets/sprites/mobs/Knight/Run.png" id="6_w8y5l"]
+[ext_resource type="AudioStream" uid="uid://c0irqaokqed77" path="res://assets/SFX/attack2.mp3" id="8_mvyd6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nw3uw"]
 atlas = ExtResource("1_swm0g")
@@ -415,3 +416,7 @@ polygon = PackedVector2Array(1, 1, 33, 19, 42, 9, 47, -14, 46, -26, 23, -50, -6,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=638285016]
 position = Vector2(1, -98.625)
 shape = SubResource("RectangleShape2D_mvyd6")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=783651008]
+stream = ExtResource("8_mvyd6")
+bus = &"SFX"
