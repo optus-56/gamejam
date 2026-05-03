@@ -3499,7 +3499,7 @@ sources/14 = SubResource("TileSetAtlasSource_264po")
 
 [node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_bbk5w")]
 z_index = 4
-position = Vector2(-67, -603)
+position = Vector2(-71, -3)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2069526503]
 position = Vector2(-5, -121)

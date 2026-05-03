@@ -7,6 +7,11 @@ const ATTACK_COOLDOWN := 0.8
 # Damage will happen when the "attack" animation reaches this frame (0-based)
 const HIT_FRAME: int = 6
 
+# Health bar
+const HEALTH_BAR_WIDTH := 50
+const HEALTH_BAR_HEIGHT := 4
+const HEALTH_BAR_OFFSET_Y := -35  # Offset above the mob
+
 # HP + reactions
 var max_hp: int = 3
 var hp: int = 3
@@ -81,6 +86,21 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+func _draw() -> void:
+	# Draw health bar above the mob
+	var bar_position = Vector2(-HEALTH_BAR_WIDTH / 2, HEALTH_BAR_OFFSET_Y)
+	
+	# Draw background (dark red)
+	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.DARK_RED)
+	
+	# Draw health (green)
+	var health_percentage = float(hp) / float(max_hp)
+	var health_width = HEALTH_BAR_WIDTH * health_percentage
+	draw_rect(Rect2(bar_position, Vector2(health_width, HEALTH_BAR_HEIGHT)), Color.GREEN)
+	
+	# Draw border (white)
+	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.WHITE, false, 1.0)
+
 func _start_attack() -> void:
 	if is_attacking or not can_attack or dead or is_hurt:
 		return
@@ -152,6 +172,7 @@ func take_damage(amount: int) -> void:
 
 	hp = max(hp - amount, 0)
 	print("Mushroom HP:", hp, "/", max_hp)
+	queue_redraw()
 
 	if hp <= 0:
 		die()
