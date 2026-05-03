@@ -13,7 +13,9 @@ const WALL_JUMP_VELOCITY := -380.0
 const WALL_JUMP_PUSH := 260.0
 
 # Attack cooldown
-const ATTACK_COOLDOWN := 0.5
+const ATTACK1_COOLDOWN := 0.6
+const ATTACK2_COOLDOWN := 0.7
+const DASH_ATTACK_COOLDOWN := 1.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -27,6 +29,9 @@ var is_attacking := false
 var is_dashing := false
 var can_dash := true
 var can_attack := true
+var attack1_ready := true
+var attack2_ready := true
+var dash_attack_ready := true
 
 var facing := 1
 var dash_dir := 1
@@ -56,7 +61,6 @@ const ATTACK2_HIT_DURATION: float = 0.14
 const DASH_ATTACK_DAMAGE: int = 3
 const DASH_ATTACK_HIT_START: float = 0.05
 const DASH_ATTACK_HIT_DURATION: float = 0.20
-const DASH_ATTACK_COOLDOWN: float = 1.0
 
 var attack1_active: bool = false
 var attack2_active: bool = false
@@ -126,10 +130,12 @@ func _physics_process(delta: float) -> void:
 				start_dash()
 
 	# DASH ATTACK (attack button during dash)
-	if is_dashing and Input.is_action_just_pressed("attack1") and not is_attacking:
+	if is_dashing and Input.is_action_just_pressed("attack1") and not is_attacking and dash_attack_ready:
 		is_attacking = true
 		animated_sprite.play("dash_attack")
 		_start_dash_attack_hit_window()
+		_start_dash_attack_cooldown()
+		_notify_enemies_attacking(true)
 
 	# DASH active
 	if is_dashing:
@@ -139,16 +145,18 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Attacks
-	if Input.is_action_just_pressed("attack1") and not is_attacking and can_attack:
+	if Input.is_action_just_pressed("attack1") and not is_attacking and can_attack and attack1_ready:
 		is_attacking = true
 		animated_sprite.play("attack1")
 		_start_attack1_hit_window()
-		_start_attack_cooldown()
-	elif Input.is_action_just_pressed("attack2") and not is_attacking and can_attack:
+		_start_attack1_cooldown()
+		_notify_enemies_attacking(true)
+	elif Input.is_action_just_pressed("attack2") and not is_attacking and can_attack and attack2_ready:
 		is_attacking = true
 		animated_sprite.play("attack2")
 		_start_attack2_hit_window()
-		_start_attack_cooldown()
+		_start_attack2_cooldown()
+		_notify_enemies_attacking(true)
 
 	# While attacking: stop movement and DO NOT run other animation logic
 	if is_attacking:
@@ -210,10 +218,26 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _start_attack_cooldown() -> void:
-	can_attack = false
-	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
-	can_attack = true
+func _notify_enemies_attacking(attacking: bool) -> void:
+	# Tell all enemies in the "enemy" group that we're attacking
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.has_method("set_player_attacking"):
+			enemy.set_player_attacking(attacking)
+
+func _start_attack1_cooldown() -> void:
+	attack1_ready = false
+	await get_tree().create_timer(ATTACK1_COOLDOWN).timeout
+	attack1_ready = true
+
+func _start_attack2_cooldown() -> void:
+	attack2_ready = false
+	await get_tree().create_timer(ATTACK2_COOLDOWN).timeout
+	attack2_ready = true
+
+func _start_dash_attack_cooldown() -> void:
+	dash_attack_ready = false
+	await get_tree().create_timer(DASH_ATTACK_COOLDOWN).timeout
+	dash_attack_ready = true
 
 func _start_attack1_hit_window() -> void:
 	attack1_already_hit.clear()
@@ -326,6 +350,7 @@ func start_dash() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "attack1" or animated_sprite.animation == "attack2" or animated_sprite.animation == "dash_attack":
 		is_attacking = false
+		_notify_enemies_attacking(false)
 
 		attack1_active = false
 		attack2_active = false
@@ -354,6 +379,7 @@ func take_damage(amount: int) -> void:
 	attack_1_hit_box.monitoring = false
 	attack_2_hit_box.monitoring = false
 	dash_attack_hit_box.monitoring = false
+	_notify_enemies_attacking(false)
 
 	# Play "hit" animation (if present)
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("hit"):
