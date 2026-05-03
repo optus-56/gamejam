@@ -3900,6 +3900,8 @@ position = Vector2(844, -624)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2069526503]
 position = Vector2(-5, -121)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1996877852]
 position = Vector2(2, 1)
