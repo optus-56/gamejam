@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxa0vgyy3egai"]
 
 [ext_resource type="Texture2D" uid="uid://bvjrt7tnp03re" path="res://assets/sprites/mobs/ninja/yellowNinja - attack.png" id="1_5krh3"]
-[ext_resource type="Script" uid="uid://dybdr2yrt7l0v" path="res://scripts/ninja.gd" id="1_he7mg"]
+[ext_resource type="Script" uid="uid://dybdr2yrt7l0v" path="res://scripts/characters/ninja.gd" id="1_he7mg"]
 [ext_resource type="Texture2D" uid="uid://dg5rb8hxd38px" path="res://assets/sprites/mobs/ninja/yellowNinja - Death.png" id="2_he7mg"]
 [ext_resource type="Texture2D" uid="uid://4tn2um3wri77" path="res://assets/sprites/mobs/ninja/yellowNinja - Whitehit.png" id="3_1pgge"]
 [ext_resource type="Texture2D" uid="uid://q4k201vv3w2k" path="res://assets/sprites/mobs/ninja/yellowNinja - idle.png" id="4_gottu"]

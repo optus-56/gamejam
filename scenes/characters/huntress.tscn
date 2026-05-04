@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqrdm7xahiyox"]
 
 [ext_resource type="Texture2D" uid="uid://cm72v33sqa2ue" path="res://assets/sprites/mobs/huntress/Attack1.png" id="1_2fdde"]
-[ext_resource type="Script" uid="uid://be7gbja3i4rdk" path="res://scripts/huntress.gd" id="1_c0ili"]
+[ext_resource type="Script" uid="uid://be7gbja3i4rdk" path="res://scripts/characters/huntress.gd" id="1_c0ili"]
 [ext_resource type="Texture2D" uid="uid://b3xli111i8wmv" path="res://assets/sprites/mobs/huntress/Attack2.png" id="2_c0ili"]
 [ext_resource type="Texture2D" uid="uid://ciqhu1lh2rcfj" path="res://assets/sprites/mobs/huntress/Attack3.png" id="3_tyq21"]
 [ext_resource type="Texture2D" uid="uid://d3abt22eb2x7r" path="res://assets/sprites/mobs/huntress/Death.png" id="4_r0yu7"]

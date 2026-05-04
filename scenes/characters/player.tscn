@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b15tgnborxqam"]
 
 [ext_resource type="Texture2D" uid="uid://c1wmequty5tnx" path="res://assets/sprites/character/1 - Idle.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://dg5004sjjcaiu" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://dg5004sjjcaiu" path="res://scripts/characters/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c7a7x8yq6aqdq" path="res://assets/sprites/character/3 - jump.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://pvckjveckrv8" path="res://assets/sprites/character/11 - attack 3.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dsaw550co108c" path="res://assets/sprites/character/2 - Run.png" id="3_qhqgy"]

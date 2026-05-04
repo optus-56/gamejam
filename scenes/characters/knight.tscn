@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7aa3i23fanxy"]
 
-[ext_resource type="Script" uid="uid://cf8k4uhmwsk3g" path="res://scripts/knight.gd" id="1_k2txo"]
+[ext_resource type="Script" uid="uid://cf8k4uhmwsk3g" path="res://scripts/characters/knight.gd" id="1_k2txo"]
 [ext_resource type="Texture2D" uid="uid://2j3qlu8tc0b8" path="res://assets/sprites/mobs/Knight/Attack1.png" id="1_swm0g"]
 [ext_resource type="Texture2D" uid="uid://cr3qndhnwq4f3" path="res://assets/sprites/mobs/Knight/Attack2.png" id="2_k2txo"]
 [ext_resource type="Texture2D" uid="uid://b4dluby5mncq7" path="res://assets/sprites/mobs/Knight/Death.png" id="3_mvyd6"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drrcabh8of5d8"]
 
-[ext_resource type="Script" uid="uid://dy3efq6ilisdm" path="res://scripts/mushroom.gd" id="1_6c3h1"]
+[ext_resource type="Script" uid="uid://dy3efq6ilisdm" path="res://scripts/characters/mushroom.gd" id="1_6c3h1"]
 [ext_resource type="Texture2D" uid="uid://cqf8a73xcqjl8" path="res://assets/sprites/mobs/mushroom/Mushroom-Attack.png" id="1_qxrkd"]
 [ext_resource type="Texture2D" uid="uid://b3bt71jivruw" path="res://assets/sprites/mobs/mushroom/Mushroom-Idle.png" id="2_6c3h1"]
 [ext_resource type="Texture2D" uid="uid://osiby8a5wmgp" path="res://assets/sprites/mobs/mushroom/Mushroom-Die.png" id="3_6rddh"]

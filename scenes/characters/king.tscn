@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://do5auob1at5kl"]
 
-[ext_resource type="Script" uid="uid://b1dsxgr6y25ty" path="res://scripts/king.gd" id="1_7lhro"]
+[ext_resource type="Script" uid="uid://b1dsxgr6y25ty" path="res://scripts/characters/king.gd" id="1_7lhro"]
 [ext_resource type="Texture2D" uid="uid://b22yyd7wjhxs" path="res://assets/sprites/mobs/king/Attack1.png" id="1_cojbw"]
 [ext_resource type="Texture2D" uid="uid://c22ustwova08o" path="res://assets/sprites/mobs/king/Attack2.png" id="2_7lhro"]
 [ext_resource type="Texture2D" uid="uid://jhvucjgoyt1q" path="res://assets/sprites/mobs/king/Attack3.png" id="3_7qhre"]

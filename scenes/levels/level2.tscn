@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://d0vcnh8j8v8jn"]
 
-[ext_resource type="Script" uid="uid://cvjxe17vo1jjo" path="res://scripts/level_2.gd" id="1_2k3dv"]
-[ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/player.tscn" id="1_if4l3"]
-[ext_resource type="TileSet" uid="uid://bkk8th04h8abe" path="res://assets/tilemaps/third_level_tile_set.tres" id="2_4038r"]
-[ext_resource type="Script" uid="uid://ersbh2xnbxq1" path="res://scripts/door2.gd" id="4_2k3dv"]
-[ext_resource type="PackedScene" uid="uid://drrcabh8of5d8" path="res://scenes/mushroom.tscn" id="5_alqfr"]
+[ext_resource type="Script" uid="uid://cvjxe17vo1jjo" path="res://scripts/levels/level_2.gd" id="1_d5djh"]
+[ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_ok6xr"]
+[ext_resource type="TileSet" uid="uid://bkk8th04h8abe" path="res://assets/tilemaps/third_level_tile_set.tres" id="3_dj4wq"]
+[ext_resource type="Script" uid="uid://ersbh2xnbxq1" path="res://scripts/doors/door2.gd" id="4_k0mew"]
+[ext_resource type="PackedScene" uid="uid://drrcabh8of5d8" path="res://scenes/characters/mushroom.tscn" id="5_b0vvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k3dv"]
 size = Vector2(25, 43)
 
 [node name="level2" type="Node2D" unique_id=734862753]
-script = ExtResource("1_2k3dv")
+script = ExtResource("1_d5djh")
 
-[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_if4l3")]
+[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("2_ok6xr")]
 position = Vector2(2364, -852)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=204173769]
@@ -21,7 +21,7 @@ zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=506818937]
 position = Vector2(-2, -5)
-tile_set = ExtResource("2_4038r")
+tile_set = ExtResource("3_dj4wq")
 format = 2
 layer_0/name = "Layer3"
 layer_0/tile_data = PackedInt32Array(3801157, 2, 15, 3866693, 2, 16, 3932229, 2, 17, 3997765, 2, 18, 4063301, 2, 19, 3801158, 65538, 15, 3866694, 65538, 16, 3932230, 65538, 17, 3997766, 65538, 18, 4063302, 65538, 19, 3801159, 131074, 15, 3866695, 131074, 16, 3932231, 131074, 17, 3997767, 131074, 18, 4063303, 131074, 19, 3801160, 196610, 15, 3866696, 196610, 16, 3932232, 196610, 17, 4063304, 196610, 19, 3997768, 196610, 18)
@@ -30,7 +30,7 @@ layer_1/tile_data = PackedInt32Array(-4849391, 524294, 19, -4849390, 589830, 19,
 
 [node name="Door" type="Area2D" parent="." unique_id=795478371]
 collision_layer = 4
-script = ExtResource("4_2k3dv")
+script = ExtResource("4_k0mew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=39031040]
 z_index = 2
@@ -39,5 +39,5 @@ shape = SubResource("RectangleShape2D_2k3dv")
 
 [node name="Mobs" type="Node" parent="." unique_id=1773854985]
 
-[node name="Mushroom" parent="Mobs" unique_id=647472348 instance=ExtResource("5_alqfr")]
+[node name="Mushroom" parent="Mobs" unique_id=647472348 instance=ExtResource("5_b0vvs")]
 position = Vector2(2446, -851)
