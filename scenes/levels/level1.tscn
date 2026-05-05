@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dqf18sr4tyydf"]
+[gd_scene load_steps=16 format=3 uid="uid://dqf18sr4tyydf"]
 
-[ext_resource type="Script" uid="uid://o2rvanlkwh61" path="res://scripts/levels/level_1.gd" id="1_dywbp"]
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_dywbp"]
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_1seuy"]
-[ext_resource type="Script" uid="uid://bodts8n83tail" path="res://scripts/doors/door1.gd" id="5_plydf"]
+[ext_resource type="Script" path="res://scripts/doors/door1.gd" id="5_plydf"]
 [ext_resource type="PackedScene" uid="uid://bsiot8o0bnp2g" path="res://scenes/killzone.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://ftuybvilq1da" path="res://scenes/spike.tscn" id="7_2r1tl"]
 [ext_resource type="Texture2D" uid="uid://caqso7piyx18y" path="res://assets/sprites/environment/Buildings.png" id="7_plydf"]
@@ -1351,54 +1351,54 @@ sources/0 = SubResource("TileSetAtlasSource_nfihu")
 sources/1 = SubResource("TileSetAtlasSource_lgguw")
 sources/2 = SubResource("TileSetAtlasSource_jprdt")
 
-[node name="level1" type="Node2D" unique_id=1828206225]
+[node name="level1" type="Node2D"]
 script = ExtResource("1_dywbp")
 
-[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("2_1seuy")]
+[node name="Player" parent="." instance=ExtResource("2_1seuy")]
 position = Vector2(35, -1)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1233300646]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-58, -96)
 scale = Vector2(2, 2)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="Door" type="Area2D" parent="." unique_id=847851467]
+[node name="Door" type="Area2D" parent="."]
 collision_layer = 4
 script = ExtResource("5_plydf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1952814815]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 z_index = 2
 position = Vector2(2654, -31)
 shape = SubResource("RectangleShape2D_ru4tf")
 
-[node name="Killzone" parent="." unique_id=1816563586 instance=ExtResource("6_1seuy")]
+[node name="Killzone" parent="." instance=ExtResource("6_1seuy")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1158173827]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_2r1tl")
 
-[node name="spikes" parent="." unique_id=924782784 instance=ExtResource("7_2r1tl")]
-position = Vector2(1735, -62.000004)
+[node name="spikes" parent="." instance=ExtResource("7_2r1tl")]
+position = Vector2(1735, -62)
 scale = Vector2(3, 3)
 
-[node name="spikes2" parent="." unique_id=402960322 instance=ExtResource("7_2r1tl")]
-position = Vector2(1847.0001, -64)
+[node name="spikes2" parent="." instance=ExtResource("7_2r1tl")]
+position = Vector2(1847, -64)
 scale = Vector2(3, 3)
 
-[node name="sawblade" parent="." unique_id=255564294 instance=ExtResource("8_8a7m2")]
+[node name="sawblade" parent="." instance=ExtResource("8_8a7m2")]
 position = Vector2(1578, -45)
 
-[node name="sawblade2" parent="." unique_id=943431874 instance=ExtResource("8_8a7m2")]
+[node name="sawblade2" parent="." instance=ExtResource("8_8a7m2")]
 position = Vector2(1578, -208)
 
-[node name="sawblade3" parent="." unique_id=1267125835 instance=ExtResource("8_8a7m2")]
+[node name="sawblade3" parent="." instance=ExtResource("8_8a7m2")]
 position = Vector2(1344, -47)
 
-[node name="sawblade4" parent="." unique_id=1670591361 instance=ExtResource("8_8a7m2")]
+[node name="sawblade4" parent="." instance=ExtResource("8_8a7m2")]
 position = Vector2(1342, -215)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=253459204]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ps2vj")
 format = 2
 layer_0/name = "background"

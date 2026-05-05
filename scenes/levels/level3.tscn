@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfn2vw2lesmwg"]
+[gd_scene load_steps=29 format=3 uid="uid://dfn2vw2lesmwg"]
 
-[ext_resource type="Script" uid="uid://wi3gprt01i35" path="res://scripts/levels/level_3.gd" id="1_ahaer"]
+[ext_resource type="Script" path="res://scripts/levels/level_3.gd" id="1_ahaer"]
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_wt4k6"]
 [ext_resource type="Texture2D" uid="uid://dsnw2pinwvtjc" path="res://assets/sprites/environment/doors.png" id="3_wo5bm"]
 [ext_resource type="Texture2D" uid="uid://by11vbx0tsrwf" path="res://assets/sprites/environment/spr_portal_strip8.png" id="4_edoqj"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/characters/king.tscn" id="14_0qxt0"]
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/characters/knight.tscn" id="15_lsxft"]
 [ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/characters/huntress.tscn" id="16_rfqup"]
-[ext_resource type="Script" uid="uid://be3phhgdgeclv" path="res://scripts/doors/door3.gd" id="17_0y7c6"]
+[ext_resource type="Script" path="res://scripts/doors/door3.gd" id="17_0y7c6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4dsi"]
 texture = ExtResource("3_wo5bm")
@@ -3907,10 +3907,10 @@ sources/0 = SubResource("TileSetAtlasSource_s4dsi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8kv5"]
 size = Vector2(99.5, 108)
 
-[node name="Level3" type="Node2D" unique_id=627995753]
+[node name="Level3" type="Node2D"]
 script = ExtResource("1_ahaer")
 
-[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("2_wt4k6")]
+[node name="Player" parent="." instance=ExtResource("2_wt4k6")]
 z_index = 4
 position = Vector2(-94, -239)
 
@@ -3938,30 +3938,30 @@ layer_3/tile_data = PackedInt32Array(-196620, 8, 15, -131084, 8, 16, -65548, 8, 
 
 [node name="Mobs" type="Node" parent="."]
 
-[node name="Ninja" parent="Mobs" unique_id=1689525233 instance=ExtResource("12_6vxnv")]
+[node name="Ninja" parent="Mobs" instance=ExtResource("12_6vxnv")]
 z_index = 4
 position = Vector2(1158, -612)
 
-[node name="Mushroom" parent="Mobs" unique_id=63053719 instance=ExtResource("13_flme0")]
+[node name="Mushroom" parent="Mobs" instance=ExtResource("13_flme0")]
 z_index = 4
 position = Vector2(230, 3)
 
-[node name="king" parent="Mobs" unique_id=1687610751 instance=ExtResource("14_0qxt0")]
+[node name="king" parent="Mobs" instance=ExtResource("14_0qxt0")]
 z_index = 4
 position = Vector2(335, -606)
 
-[node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("15_lsxft")]
+[node name="Knight" parent="Mobs" instance=ExtResource("15_lsxft")]
 z_index = 4
 position = Vector2(783, -241)
 
-[node name="huntress" parent="Mobs" unique_id=1462967430 instance=ExtResource("16_rfqup")]
+[node name="huntress" parent="Mobs" instance=ExtResource("16_rfqup")]
 position = Vector2(158, -241)
 
-[node name="Door" type="Area2D" parent="." unique_id=24659383]
+[node name="Door" type="Area2D" parent="."]
 collision_layer = 4
 script = ExtResource("17_0y7c6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1160387525]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 z_index = 2
 position = Vector2(1311.25, -666)
 shape = SubResource("RectangleShape2D_i8kv5")
