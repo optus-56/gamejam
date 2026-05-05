@@ -25,4 +25,4 @@ func _process(_delta: float) -> void:
 				go_to_next_level()
 
 func go_to_next_level():
-	get_tree().change_scene_to_file("res://scenes/level3.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
