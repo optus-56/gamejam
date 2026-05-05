@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dah4nf8rq67pr"]
+
+[ext_resource type="PackedScene" uid="uid://bsiot8o0bnp2g" path="res://scenes/killzone.tscn" id="1_2q6p5"]
+[ext_resource type="Texture2D" uid="uid://dxtphsgxetq1q" path="res://assets/sprites/environment/On (38x38).png" id="1_jbc87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tlya"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdl44"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq47k"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2fga"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t34h8"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebgei"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blxvn"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu0wn"]
+atlas = ExtResource("1_jbc87")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r58yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tlya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdl44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq47k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2fga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t34h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebgei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blxvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu0wn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 35.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbc87"]
+radius = 19.0
+
+[node name="sawblade" type="Node2D" unique_id=255564294]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938728584]
+sprite_frames = SubResource("SpriteFrames_r58yt")
+autoplay = "default"
+frame_progress = 0.57597953
+
+[node name="Killzone" parent="." unique_id=1816563586 instance=ExtResource("1_2q6p5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1552701878]
+shape = SubResource("CircleShape2D_jbc87")
