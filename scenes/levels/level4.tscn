@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://brk8crqp7upbh" path="res://assets/sprites/environment/greenforesttiles.png" id="6_heu5o"]
 [ext_resource type="PackedScene" uid="uid://bsiot8o0bnp2g" path="res://scenes/killzone.tscn" id="8_s45gt"]
 [ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/characters/huntress.tscn" id="10_t7v7a"]
+[ext_resource type="PackedScene" uid="uid://ncre74ks1c6s" path="res://scenes/characters/nightbourne.tscn" id="10_xx6b8"]
 [ext_resource type="Script" uid="uid://bxmkbyi874ls3" path="res://scripts/doors/door4.gd" id="11_t7v7a"]
+[ext_resource type="PackedScene" uid="uid://lg1pml2trpxm" path="res://scenes/characters/demon.tscn" id="12_f62st"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vryo"]
 texture = ExtResource("2_heu5o")
@@ -2383,8 +2385,14 @@ shape = SubResource("WorldBoundaryShape2D_4vryo")
 
 [node name="Mobs" type="Node" parent="." unique_id=969184796]
 
+[node name="Nightbourne" parent="Mobs" unique_id=1078055927 instance=ExtResource("10_xx6b8")]
+position = Vector2(492, 18)
+
 [node name="huntress" parent="Mobs" unique_id=1462967430 instance=ExtResource("10_t7v7a")]
-position = Vector2(1530, -176)
+position = Vector2(1052, -25)
+
+[node name="demon" parent="Mobs" unique_id=1611424168 instance=ExtResource("12_f62st")]
+position = Vector2(1526, -179)
 
 [node name="Door" type="Area2D" parent="." unique_id=1529538898]
 collision_layer = 4
