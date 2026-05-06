@@ -361,6 +361,7 @@ radius = 23.0
 size = Vector2(293, 143)
 
 [node name="Mushroom" type="CharacterBody2D" unique_id=647472348]
+z_index = 4
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_6c3h1")
