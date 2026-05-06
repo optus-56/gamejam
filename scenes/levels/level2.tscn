@@ -5,6 +5,12 @@
 [ext_resource type="TileSet" uid="uid://bkk8th04h8abe" path="res://assets/tilemaps/third_level_tile_set.tres" id="3_dj4wq"]
 [ext_resource type="Script" uid="uid://ersbh2xnbxq1" path="res://scripts/doors/door2.gd" id="4_k0mew"]
 [ext_resource type="PackedScene" uid="uid://drrcabh8of5d8" path="res://scenes/characters/mushroom.tscn" id="5_b0vvs"]
+[ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/characters/knight.tscn" id="6_dj4wq"]
+[ext_resource type="PackedScene" uid="uid://ftuybvilq1da" path="res://scenes/spike.tscn" id="6_ok6xr"]
+[ext_resource type="PackedScene" uid="uid://lg1pml2trpxm" path="res://scenes/characters/demon.tscn" id="7_gycjm"]
+[ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/characters/king.tscn" id="8_8i1lk"]
+[ext_resource type="PackedScene" uid="uid://bbm2dnhmxr4gf" path="res://scenes/characters/bringer.tscn" id="9_hgky1"]
+[ext_resource type="PackedScene" uid="uid://dah4nf8rq67pr" path="res://scenes/sawblade.tscn" id="11_b4tpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k3dv"]
 size = Vector2(25, 43)
@@ -20,7 +26,7 @@ normal = Vector2(-1, 0)
 script = ExtResource("1_d5djh")
 
 [node name="Player" parent="." unique_id=1580455860 instance=ExtResource("2_ok6xr")]
-position = Vector2(2364, -852)
+position = Vector2(6, 349)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=556775652]
 position = Vector2(-30, -51)
@@ -55,6 +61,36 @@ shape = SubResource("RectangleShape2D_2k3dv")
 [node name="Mushroom" parent="Mobs" unique_id=2075485354 instance=ExtResource("5_b0vvs")]
 position = Vector2(2446, -851)
 
+[node name="Mushroom2" parent="Mobs" unique_id=647472348 instance=ExtResource("5_b0vvs")]
+position = Vector2(2053, 91)
+
+[node name="Mushroom3" parent="Mobs" unique_id=707567725 instance=ExtResource("5_b0vvs")]
+position = Vector2(1220, -244)
+
+[node name="Mushroom4" parent="Mobs" unique_id=913622376 instance=ExtResource("5_b0vvs")]
+position = Vector2(1475, -373)
+
+[node name="Mushroom5" parent="Mobs" unique_id=838170444 instance=ExtResource("5_b0vvs")]
+position = Vector2(2066, -916)
+
+[node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("6_dj4wq")]
+position = Vector2(1499, -29)
+
+[node name="Knight2" parent="Mobs" unique_id=1544452981 instance=ExtResource("6_dj4wq")]
+position = Vector2(1842, -453)
+
+[node name="Knight3" parent="Mobs" unique_id=1839899739 instance=ExtResource("6_dj4wq")]
+position = Vector2(1099, -621)
+
+[node name="demon" parent="Mobs/Knight3" unique_id=1611424168 instance=ExtResource("7_gycjm")]
+position = Vector2(416, -350)
+
+[node name="king" parent="Mobs" unique_id=1687610751 instance=ExtResource("8_8i1lk")]
+position = Vector2(707, -618)
+
+[node name="Bringer" parent="Mobs" unique_id=579647565 instance=ExtResource("9_hgky1")]
+position = Vector2(783, -906)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2102025367]
 position = Vector2(-46, -32)
 collision_layer = 4
@@ -66,3 +102,57 @@ shape = SubResource("WorldBoundaryShape2D_d5djh")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1849161780]
 position = Vector2(2907, -880)
 shape = SubResource("WorldBoundaryShape2D_ok6xr")
+
+[node name="spikes" type="Node" parent="." unique_id=2015647003]
+
+[node name="spikes" parent="spikes" unique_id=924782784 instance=ExtResource("6_ok6xr")]
+position = Vector2(2239, 342)
+scale = Vector2(3, 3)
+
+[node name="spikes5" parent="spikes" unique_id=475821397 instance=ExtResource("6_ok6xr")]
+position = Vector2(548, -908.00006)
+scale = Vector2(3, 3)
+
+[node name="spikes6" parent="spikes" unique_id=1161672222 instance=ExtResource("6_ok6xr")]
+position = Vector2(412, -909)
+scale = Vector2(3, 3)
+
+[node name="spikes7" parent="spikes" unique_id=958555270 instance=ExtResource("6_ok6xr")]
+position = Vector2(1075, -907)
+scale = Vector2(3, 3)
+
+[node name="spikes8" parent="spikes" unique_id=671018759 instance=ExtResource("6_ok6xr")]
+position = Vector2(644, -908)
+scale = Vector2(3, 3)
+
+[node name="spikes9" parent="spikes" unique_id=532861792 instance=ExtResource("6_ok6xr")]
+position = Vector2(1242, -972)
+scale = Vector2(3, 3)
+
+[node name="spikes10" parent="spikes" unique_id=2111477098 instance=ExtResource("6_ok6xr")]
+position = Vector2(1790.0001, -971)
+scale = Vector2(3, 3)
+
+[node name="spikes2" parent="spikes" unique_id=45424839 instance=ExtResource("6_ok6xr")]
+position = Vector2(2193, 342)
+scale = Vector2(3, 3)
+
+[node name="spikes3" parent="spikes" unique_id=1235607766 instance=ExtResource("6_ok6xr")]
+position = Vector2(2147, 343)
+scale = Vector2(3, 3)
+
+[node name="spikes4" parent="spikes" unique_id=2103739253 instance=ExtResource("6_ok6xr")]
+position = Vector2(2102, 343)
+scale = Vector2(3, 3)
+
+[node name="sawblade" parent="spikes" unique_id=255564294 instance=ExtResource("11_b4tpv")]
+position = Vector2(1631, -354)
+scale = Vector2(1.8, 1.8)
+
+[node name="sawblade2" parent="spikes" unique_id=324807798 instance=ExtResource("11_b4tpv")]
+position = Vector2(1371.0001, -258)
+scale = Vector2(1.8, 1.8)
+
+[node name="sawblade3" parent="spikes" unique_id=1660341981 instance=ExtResource("11_b4tpv")]
+position = Vector2(1901.0001, -927.00006)
+scale = Vector2(1.8, 1.8)
