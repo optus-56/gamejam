@@ -3989,87 +3989,6 @@ shape = SubResource("RectangleShape2D_ru4tf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=943633232]
 shape = SubResource("WorldBoundaryShape2D_2r1tl")
 
-
-[node name="spikes" parent="." unique_id=58964799 instance=ExtResource("7_2r1tl")]
-position = Vector2(1735, -62)
-scale = Vector2(3, 3)
-
-[node name="spikes2" parent="." unique_id=161615667 instance=ExtResource("7_2r1tl")]
-position = Vector2(1847, -64)
-scale = Vector2(3, 3)
-
-[node name="sawblade" parent="." unique_id=121170321 instance=ExtResource("8_8a7m2")]
-position = Vector2(1578, -45)
-
-[node name="sawblade2" parent="." unique_id=1887170843 instance=ExtResource("8_8a7m2")]
-position = Vector2(1578, -208)
-
-[node name="sawblade3" parent="." unique_id=1192001702 instance=ExtResource("8_8a7m2")]
-position = Vector2(1344, -47)
-
-[node name="sawblade4" parent="." unique_id=2083998289 instance=ExtResource("8_8a7m2")]
-
-[node name="spikes" parent="." unique_id=924782784 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1734.0001, -110.00001)
-scale = Vector2(3, 3)
-
-[node name="spikes3" parent="." unique_id=1848453839 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1978.0001, -4.0000076)
-scale = Vector2(3, 3)
-
-[node name="spikes8" parent="." unique_id=748995121 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(2136, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes9" parent="." unique_id=1340540947 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(2024, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes4" parent="." unique_id=1856824530 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1373.0001, -5.0000076)
-scale = Vector2(3, 3)
-
-[node name="spikes5" parent="." unique_id=1375888489 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1325, -5)
-scale = Vector2(3, 3)
-
-[node name="spikes6" parent="." unique_id=1792889997 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1604, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes7" parent="." unique_id=1818027461 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1556, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes2" parent="." unique_id=402960322 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1851.0001, -112)
-scale = Vector2(3, 3)
-
-[node name="sawblade" parent="." unique_id=255564294 instance=ExtResource("8_8a7m2")]
-z_index = 2
-position = Vector2(1578, -45)
-
-[node name="sawblade2" parent="." unique_id=943431874 instance=ExtResource("8_8a7m2")]
-z_index = 2
-position = Vector2(1578, -218)
-
-[node name="sawblade3" parent="." unique_id=1267125835 instance=ExtResource("8_8a7m2")]
-z_index = 2
-position = Vector2(1344, -47)
-
-[node name="sawblade4" parent="." unique_id=1670591361 instance=ExtResource("8_8a7m2")]
-z_index = 2
-position = Vector2(1342, -215)
-
 [node name="TileMap" type="TileMap" parent="." unique_id=1371358529]
 tile_set = SubResource("TileSet_ps2vj")
 format = 2
@@ -4103,3 +4022,68 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=40882671]
 position = Vector2(-2107, 174)
 shape = SubResource("WorldBoundaryShape2D_plydf")
+
+[node name="spikes" type="Node" parent="." unique_id=619217192]
+
+[node name="spikes3" parent="spikes" unique_id=924782784 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1734.0001, -62)
+scale = Vector2(3, 3)
+
+[node name="spikes4" parent="spikes" unique_id=1848453839 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1978.0001, -4.0000076)
+scale = Vector2(3, 3)
+
+[node name="spikes8" parent="spikes" unique_id=748995121 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(2136, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes9" parent="spikes" unique_id=1340540947 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(2024, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes5" parent="spikes" unique_id=1856824530 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1373.0001, -5.0000076)
+scale = Vector2(3, 3)
+
+[node name="spikes6" parent="spikes" unique_id=1375888489 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1325, -5)
+scale = Vector2(3, 3)
+
+[node name="spikes7" parent="spikes" unique_id=1792889997 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1604, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes10" parent="spikes" unique_id=1818027461 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1556, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes11" parent="spikes" unique_id=402960322 instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1851.0001, -64)
+scale = Vector2(3, 3)
+
+[node name="saws" type="Node" parent="." unique_id=1476666839]
+
+[node name="sawblade5" parent="saws" unique_id=255564294 instance=ExtResource("8_8a7m2")]
+z_index = 2
+position = Vector2(1578, -45)
+
+[node name="sawblade6" parent="saws" unique_id=943431874 instance=ExtResource("8_8a7m2")]
+z_index = 2
+position = Vector2(1578, -218)
+
+[node name="sawblade7" parent="saws" unique_id=1267125835 instance=ExtResource("8_8a7m2")]
+z_index = 2
+position = Vector2(1344, -47)
+
+[node name="sawblade8" parent="saws" unique_id=1670591361 instance=ExtResource("8_8a7m2")]
+z_index = 2
+position = Vector2(1343, -214)
