@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED := 140.0
 const JUMP_VELOCITY := -375.0
-
 const DASH_SPEED := 500.0
 const DASH_TIME := 0.18
 const DASH_COOLDOWN := 0.4
@@ -17,14 +16,12 @@ const ATTACK1_COOLDOWN := 0.6
 const ATTACK2_COOLDOWN := 0.7
 const DASH_ATTACK_COOLDOWN := 1.0
 
-# Health bar
-const HEALTH_BAR_WIDTH := 40
-const HEALTH_BAR_HEIGHT := 4
-const HEALTH_BAR_OFFSET_Y := -50  # Offset above the player
+const HEALTH_BAR_WIDTH := 300
+const HEALTH_BAR_HEIGHT := 30
+const HEALTH_BAR_OFFSET_X := 20
+const HEALTH_BAR_OFFSET_Y := 10
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
-# NEW tree: AttackRoot contains both hitboxes
 @onready var attack_root: Node2D = $AttackRoot
 @onready var attack_1_hit_box: Area2D = $AttackRoot/Attack1HitBox
 @onready var attack_2_hit_box: Area2D = $AttackRoot/Attack2HitBox
@@ -34,6 +31,9 @@ const HEALTH_BAR_OFFSET_Y := -50  # Offset above the player
 @onready var dash_attack: AudioStreamPlayer2D = $SFX/DashAttack
 @onready var walk: AudioStreamPlayer2D = $SFX/walk
 
+# Reference to the UI health bar
+var health_bar_ui: Control
+
 var is_attacking := false
 var is_dashing := false
 var can_dash := true
@@ -42,7 +42,6 @@ var attack1_ready := true
 var attack2_ready := true
 var dash_attack_ready := true
 
-# Cooldown tracking with start time
 var attack1_cooldown_start := 0.0
 var attack2_cooldown_start := 0.0
 var dash_attack_cooldown_start := 0.0
@@ -50,12 +49,11 @@ var dash_attack_cooldown_start := 0.0
 var facing := 1
 var dash_dir := 1
 var air_dash_available := true
-
 var last_wall_jump_side := 0
 
 # HP system
-var max_hp: int = 5
-var hp: int = 5
+var max_hp: int = 15
+var hp: int = 15
 var invincible: bool = false
 const IFRAME_TIME: float = 0.4
 
@@ -80,9 +78,9 @@ var attack1_active: bool = false
 var attack2_active: bool = false
 var dash_attack_active: bool = false
 
-var attack1_already_hit: Dictionary = {} # instance_id -> true
-var attack2_already_hit: Dictionary = {} # instance_id -> true
-var dash_attack_already_hit: Dictionary = {} # instance_id -> true
+var attack1_already_hit: Dictionary = {}
+var attack2_already_hit: Dictionary = {}
+var dash_attack_already_hit: Dictionary = {}
 
 var spawn_position: Vector2 = Vector2.ZERO
 var dead: bool = false
@@ -90,10 +88,8 @@ var dead: bool = false
 func _ready() -> void:
 	add_to_group("player")
 
-	# Connect animation finished so attacks end (attack anims must be Loop OFF)
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
-	# Hitboxes off by default
 	attack_1_hit_box.monitoring = false
 	attack_2_hit_box.monitoring = false
 	dash_attack_hit_box.monitoring = false
@@ -102,39 +98,66 @@ func _ready() -> void:
 	attack_2_hit_box.body_entered.connect(_on_attack2_hit_box_body_entered)
 	dash_attack_hit_box.body_entered.connect(_on_dash_attack_hit_box_body_entered)
 
-	# IMPORTANT: flip the whole attack rig with facing
 	attack_root.scale.x = facing
-	
 	spawn_position = global_position
+	
+	# Create the UI health bar (screen-static)
+	_create_health_bar_ui()
+
+func _create_health_bar_ui() -> void:
+	# Create a CanvasLayer to stay on top and in screen space
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100
+	add_child(canvas_layer)
+	
+	# Create a Control node for drawing
+	health_bar_ui = Control.new()
+	health_bar_ui.anchor_left = 0.0
+	health_bar_ui.anchor_top = 0.0
+	health_bar_ui.anchor_right = 0.0
+	health_bar_ui.anchor_bottom = 0.0	
+	health_bar_ui.offset_left = HEALTH_BAR_OFFSET_X
+	health_bar_ui.offset_top = HEALTH_BAR_OFFSET_Y
+	health_bar_ui.custom_minimum_size = Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)
+	health_bar_ui.draw.connect(_on_health_bar_draw)
+	
+	canvas_layer.add_child(health_bar_ui)
+
+func _on_health_bar_draw() -> void:
+	# Draw background (dark red)
+	health_bar_ui.draw_rect(Rect2(Vector2.ZERO, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.DARK_RED)
+	
+	# Draw health (green)
+	var health_percentage = float(hp) / float(max_hp)
+	var health_width = HEALTH_BAR_WIDTH * health_percentage
+	health_bar_ui.draw_rect(Rect2(Vector2.ZERO, Vector2(health_width, HEALTH_BAR_HEIGHT)), Color.GREEN)
+	
+	# Draw border (white)
+	health_bar_ui.draw_rect(Rect2(Vector2.ZERO, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.WHITE, false, 2.0)
 
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
 	
-	# If hit-stunned, lock control briefly and don't run normal logic
 	if is_hitstunned:
 		velocity.x = 0
 		move_and_slide()
 		return
 
-	# Reset air dash when you touch the floor
 	if is_on_floor():
 		air_dash_available = true
 		last_wall_jump_side = 0
 
-	# Gravity (skip during dash if you want a flat dash)
 	if not is_on_floor() and not is_dashing:
 		velocity += get_gravity() * delta
 
 	var direction := Input.get_axis("move_left", "move_right")
 
-	# Update facing when player inputs direction (not during dash)
 	if direction != 0 and not is_dashing:
 		facing = 1 if direction > 0 else -1
 		animated_sprite.flip_h = (facing == -1)
-		attack_root.scale.x = facing # NEW
+		attack_root.scale.x = facing
 
-	# DASH start
 	if Input.is_action_just_pressed("dash") and can_dash and not is_attacking and not is_dashing:
 		if is_on_floor():
 			start_dash()
@@ -143,7 +166,6 @@ func _physics_process(delta: float) -> void:
 				air_dash_available = false
 				start_dash()
 
-	# DASH ATTACK (attack button during dash)
 	if is_dashing and Input.is_action_just_pressed("attack1") and not is_attacking and dash_attack_ready:
 		is_attacking = true
 		animated_sprite.play("dash_attack")
@@ -152,14 +174,12 @@ func _physics_process(delta: float) -> void:
 		_start_dash_attack_cooldown()
 		_notify_enemies_attacking(true)
 
-	# DASH active
 	if is_dashing:
 		velocity.y = 0
 		velocity.x = dash_dir * DASH_SPEED
 		move_and_slide()
 		return
 
-	# Attacks
 	if Input.is_action_just_pressed("attack1") and not is_attacking and can_attack and attack1_ready:
 		is_attacking = true
 		animated_sprite.play("attack1")
@@ -175,17 +195,14 @@ func _physics_process(delta: float) -> void:
 		_start_attack2_cooldown()
 		_notify_enemies_attacking(true)
 
-	# While attacking: stop movement and DO NOT run other animation logic
 	if is_attacking:
 		velocity.x = 0
 		move_and_slide()
 		return
 
-	# Wall slide
 	if not is_on_floor() and is_on_wall() and velocity.y > WALL_SLIDE_SPEED:
 		velocity.y = WALL_SLIDE_SPEED
 
-	# Jump / Wall jump
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -205,9 +222,8 @@ func _physics_process(delta: float) -> void:
 
 				facing = 1 if velocity.x > 0 else -1
 				animated_sprite.flip_h = (facing == -1)
-				attack_root.scale.x = facing # NEW
+				attack_root.scale.x = facing
 
-	# Animations (normal only)
 	if not is_on_floor():
 		if velocity.y < 0:
 			animated_sprite.play("jump")
@@ -220,13 +236,11 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 			walk.play()
 
-	# Movement
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Safety: keep hitboxes disabled when not in hit window
 	if not attack1_active:
 		attack_1_hit_box.monitoring = false
 	if not attack2_active:
@@ -235,25 +249,8 @@ func _physics_process(delta: float) -> void:
 		dash_attack_hit_box.monitoring = false
 
 	move_and_slide()
-	queue_redraw()
-
-func _draw() -> void:
-	# Draw health bar above the player
-	var bar_position = Vector2(-HEALTH_BAR_WIDTH / 2, HEALTH_BAR_OFFSET_Y)
-	
-	# Draw background (dark red)
-	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.DARK_RED)
-	
-	# Draw health (green)
-	var health_percentage = float(hp) / float(max_hp)
-	var health_width = HEALTH_BAR_WIDTH * health_percentage
-	draw_rect(Rect2(bar_position, Vector2(health_width, HEALTH_BAR_HEIGHT)), Color.GREEN)
-	
-	# Draw border (white)
-	draw_rect(Rect2(bar_position, Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)), Color.WHITE, false, 2.0)
 
 func _notify_enemies_attacking(attacking: bool) -> void:
-	# Tell all enemies in the "enemy" group that we're attacking
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		if enemy.has_method("set_player_attacking"):
 			enemy.set_player_attacking(attacking)
@@ -402,13 +399,15 @@ func take_damage(amount: int) -> void:
 
 	hp = max(hp - amount, 0)
 	print("Player took damage:", amount, "HP:", hp, "/", max_hp)
-	queue_redraw()
+	
+	# Redraw the health bar
+	if health_bar_ui:
+		health_bar_ui.queue_redraw()
 
 	if hp <= 0:
 		die()
 		return
 
-	# Cancel actions + disable hitboxes immediately
 	is_attacking = false
 	is_dashing = false
 	attack1_active = false
@@ -419,11 +418,9 @@ func take_damage(amount: int) -> void:
 	dash_attack_hit_box.monitoring = false
 	_notify_enemies_attacking(false)
 
-	# Play "hit" animation (if present)
 	if animated_sprite.sprite_frames != null and animated_sprite.sprite_frames.has_animation("hit"):
 		animated_sprite.play("hit")
 
-	# Apply i-frames + short stun
 	invincible = true
 	is_hitstunned = true
 
@@ -440,5 +437,4 @@ func die() -> void:
 	await get_tree().create_timer(1.0).timeout
 	
 	Engine.time_scale = 1.0
-	#game over screen transaction
 	get_tree().change_scene_to_file("res://scenes/gameover.tscn")

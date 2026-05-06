@@ -25,7 +25,7 @@ const HEALTH_BAR_OFFSET_Y := -62
 
 # HP + reactions
 var max_hp: int = 6
-var hp: int = 3
+var hp: int = 6
 var dead: bool = false
 
 const HURT_LOCK_TIME: float = 0.1

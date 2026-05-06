@@ -10,7 +10,7 @@ const ATTACK_RANGE := 50.0  # Distance to trigger attack
 # Normal attack hit frame(s) (0-based)
 const HIT_FRAME: Array[int] = [9, 10]
 
-const DEATH_HIT_FRAME: Array[int] = [12, 13, 14, 15, 16, 17]
+const DEATH_HIT_FRAME: Array[int] = [12, 13, 14, 15, 16, 17, 18, 19,20]
 
 # Health bar
 const HEALTH_BAR_WIDTH := 40
@@ -18,8 +18,8 @@ const HEALTH_BAR_HEIGHT := 4
 const HEALTH_BAR_OFFSET_Y := -62
 
 # HP + reactions
-var max_hp: int = 6
-var hp: int = 3
+var max_hp: int = 7
+var hp: int = 7
 var dead: bool = false
 
 const HURT_LOCK_TIME: float = 0.1

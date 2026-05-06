@@ -439,6 +439,7 @@ size = Vector2(54, 10)
 size = Vector2(354.75, 141)
 
 [node name="Ninja" type="CharacterBody2D" unique_id=1689525233]
+z_index = 4
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_he7mg")

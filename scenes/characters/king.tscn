@@ -362,6 +362,7 @@ height = 56.0
 size = Vector2(412, 197.5)
 
 [node name="king" type="CharacterBody2D" unique_id=1687610751]
+z_index = 4
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_7lhro")

@@ -424,7 +424,7 @@ height = 36.0
 size = Vector2(507, 89)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbaxh"]
-radius = 30.016663
+radius = 39.012817
 
 [node name="Nightbourne" type="CharacterBody2D" unique_id=1078055927]
 z_index = 4
@@ -436,7 +436,7 @@ script = ExtResource("1_8i38v")
 position = Vector2(-2, -33.250004)
 scale = Vector2(1.1875001, 1.29375)
 sprite_frames = SubResource("SpriteFrames_mcd0d")
-animation = &"death"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1402591603]

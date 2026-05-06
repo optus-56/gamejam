@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://do5auob1at5kl" path="res://scenes/characters/king.tscn" id="14_0qxt0"]
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/characters/knight.tscn" id="15_lsxft"]
 [ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/characters/huntress.tscn" id="16_rfqup"]
+[ext_resource type="PackedScene" uid="uid://ncre74ks1c6s" path="res://scenes/characters/nightbourne.tscn" id="16_y3vdi"]
 [ext_resource type="Script" uid="uid://be3phhgdgeclv" path="res://scripts/doors/door4.gd" id="17_0y7c6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4dsi"]
@@ -3912,11 +3913,11 @@ script = ExtResource("1_ahaer")
 
 [node name="Player" parent="." unique_id=110342343 instance=ExtResource("2_wt4k6")]
 z_index = 4
-position = Vector2(-94, -239)
+position = Vector2(-99, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=177491936]
 position = Vector2(-5, -121)
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
@@ -3938,23 +3939,30 @@ layer_3/tile_data = PackedInt32Array(-196620, 8, 15, -131084, 8, 16, -65548, 8, 
 
 [node name="Mobs" type="Node" parent="." unique_id=1414497839]
 
-[node name="Ninja" parent="Mobs" unique_id=263806354 instance=ExtResource("12_6vxnv")]
-z_index = 4
-position = Vector2(1158, -612)
-
 [node name="Mushroom" parent="Mobs" unique_id=651801709 instance=ExtResource("13_flme0")]
 position = Vector2(230, 3)
 
 [node name="king" parent="Mobs" unique_id=1922486620 instance=ExtResource("14_0qxt0")]
 z_index = 4
-position = Vector2(335, -606)
+position = Vector2(1121, -606)
 
 [node name="Knight" parent="Mobs" unique_id=285819859 instance=ExtResource("15_lsxft")]
-z_index = 4
-position = Vector2(783, -241)
+position = Vector2(589, -231)
 
 [node name="huntress" parent="Mobs" unique_id=16304689 instance=ExtResource("16_rfqup")]
 position = Vector2(158, -241)
+
+[node name="Nightbourne" parent="Mobs" unique_id=1078055927 instance=ExtResource("16_y3vdi")]
+position = Vector2(728, -607)
+
+[node name="Nightbourne2" parent="Mobs" unique_id=1447684936 instance=ExtResource("16_y3vdi")]
+position = Vector2(281, -610)
+
+[node name="Ninja" parent="Mobs" unique_id=1689525233 instance=ExtResource("12_6vxnv")]
+position = Vector2(1074, -238)
+
+[node name="Knight2" parent="Mobs" unique_id=1699918242 instance=ExtResource("15_lsxft")]
+position = Vector2(696, 2)
 
 [node name="Door" type="Area2D" parent="." unique_id=186221249]
 collision_layer = 4
