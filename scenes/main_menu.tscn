@@ -1,12 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqoqlfciota60"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://dn14utset5jpp" path="res://assets/sprites/environment/Background_0.png" id="2_y0t42"]
+[ext_resource type="Texture2D" uid="uid://c5383dxd4wfeo" path="res://assets/background/mainmenubg.png" id="2_301xn"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="3_1sglo"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
-texture = ExtResource("2_y0t42")
-modulate_color = Color(0.380198, 0.380198, 0.380198, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gga1"]
+texture = ExtResource("2_301xn")
 
 [sub_resource type="FontVariation" id="FontVariation_3dus0"]
 base_font = ExtResource("3_1sglo")
@@ -66,19 +65,19 @@ offset_left = 3.0
 offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3gga1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -123.0
-offset_top = -56.0
-offset_right = 151.0
-offset_bottom = 78.0
+offset_left = -178.0
+offset_top = -119.0
+offset_right = 154.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -98,6 +97,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Start game"
 icon = SubResource("ImageTexture_8b5ne")
 
+[node name="Restart progress" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3dus0")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Restart Progress
+"
+icon = SubResource("ImageTexture_8b5ne")
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -113,4 +128,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart progress" to="." method="_on_restart_progress_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

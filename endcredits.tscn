@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b50yn5jirwoog"]
+
+[ext_resource type="Script" path="res://scripts/rich_text_label.gd" id="1_3d32f"]
+[ext_resource type="Texture2D" uid="uid://ct0i6a0fylf1t" path="res://assets/background/endcredits image.png" id="1_8kpqi"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="2_mr4ag"]
+[ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="3_r1n8e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56w8a"]
+texture = ExtResource("1_8kpqi")
+
+[node name="endcredits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_56w8a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 1926.0
+offset_bottom = 1016.0
+script = ExtResource("1_3d32f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1916.0
+offset_bottom = 1089.0
+theme_override_fonts/font = ExtResource("3_r1n8e")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mr4ag")
