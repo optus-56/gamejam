@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgbenvv5828nw"]
+[gd_scene load_steps=14 format=3 uid="uid://dgbenvv5828nw"]
 
 [ext_resource type="Script" path="res://scripts/gameover.gd" id="1_d4465"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="1_xpart"]
 [ext_resource type="Texture2D" uid="uid://dfqs0rch66u6" path="res://assets/background/gameoverbg.png" id="3_c7got"]
 [ext_resource type="Texture2D" uid="uid://doy2mqfuym2k" path="res://assets/background/borderoutline.png" id="3_nimra"]
+[ext_resource type="Texture2D" uid="uid://171b6xvrgqk0" path="res://assets/background/button2.png" id="5_0h2xn"]
+[ext_resource type="Texture2D" uid="uid://dshh6xf1lqerg" path="res://assets/background/button2t-removebg-preview.png" id="6_vthfc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptppk"]
 line_spacing = 8.0
@@ -85,6 +87,7 @@ text = "YOU DIED !!!"
 label_settings = SubResource("LabelSettings_ptppk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.486
@@ -128,5 +131,75 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_x1grv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jgjp6")
 text = "Quit"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.42963
+anchor_right = 0.595833
+anchor_bottom = 0.607407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Try_again" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_0h2xn")
+texture_hover = ExtResource("6_vthfc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer2/Try_again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_xpart")
+theme_override_font_sizes/font_size = 35
+text = "TRY AGAIN
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_0h2xn")
+texture_hover = ExtResource("6_vthfc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer2/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_xpart")
+theme_override_font_sizes/font_size = 35
+text = "BACK
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/Try_again" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Try_again" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

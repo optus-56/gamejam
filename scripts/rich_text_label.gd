@@ -31,6 +31,6 @@ func scroll_text(input_text:String)-> void:
 	text = input_text
 	
 	for i in get_parsed_text():
-		visible_characters +=2
+		visible_characters +=1
 		await get_tree().create_timer(0.1).timeout
 	

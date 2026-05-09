@@ -24,5 +24,3 @@ func _on_try_again_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	
-	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
-	
