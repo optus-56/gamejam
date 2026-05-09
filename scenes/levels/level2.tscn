@@ -2366,8 +2366,9 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1194751792]
-tile_set = SubResource("TileSet_um320")
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-2, -5)
+tile_set = ExtResource("3_dj4wq")
 format = 2
 layer_0/name = "main"
 layer_0/z_index = 2
@@ -2401,7 +2402,7 @@ position = Vector2(132, 14)
 collision_layer = 4
 script = ExtResource("13_bxuut")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1091941223]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 z_index = 2
 position = Vector2(2959, -208)
 shape = SubResource("RectangleShape2D_g1ckg")

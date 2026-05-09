@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://b50yn5jirwoog"]
+
+[ext_resource type="Script" path="res://scripts/rich_text_label.gd" id="1_3d32f"]
+[ext_resource type="Texture2D" uid="uid://ct0i6a0fylf1t" path="res://assets/background/endcredits image.png" id="1_8kpqi"]
+[ext_resource type="Script" path="res://endcredits.gd" id="1_eqv1c"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="2_mr4ag"]
+[ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="3_r1n8e"]
+[ext_resource type="Texture2D" uid="uid://dnj3gfhq06xu3" path="res://assets/background/button1.png" id="6_vc15q"]
+[ext_resource type="Texture2D" uid="uid://ddwsv5dkfqp1n" path="res://assets/background/button1t-removebg-preview.png" id="7_2mb3t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56w8a"]
+texture = ExtResource("1_8kpqi")
+
+[node name="endcredits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_eqv1c")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_56w8a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 1926.0
+offset_bottom = 1016.0
+script = ExtResource("1_3d32f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1916.0
+offset_bottom = 1089.0
+theme_override_fonts/font = ExtResource("3_r1n8e")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mr4ag")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.776618
+anchor_top = 0.0881543
+anchor_right = 0.939979
+anchor_bottom = 0.176309
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="back" type="TextureButton" parent="Label/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("6_vc15q")
+texture_hover = ExtResource("7_2mb3t")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Label/VBoxContainer2/back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_r1n8e")
+theme_override_font_sizes/font_size = 35
+text = "BACK
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Label/VBoxContainer2/back" to="." method="_on_back_pressed"]

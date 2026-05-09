@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://cqoqlfciota60"]
+[gd_scene load_steps=7 format=3 uid="uid://cqoqlfciota60"]
 
-[ext_resource type="Script" uid="uid://354wdxoui32x" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://dn14utset5jpp" path="res://assets/sprites/environment/Background_0.png" id="2_y0t42"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://c5383dxd4wfeo" path="res://assets/background/mainmenubg.png" id="2_301xn"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="3_1sglo"]
+[ext_resource type="Texture2D" uid="uid://ddwsv5dkfqp1n" path="res://assets/background/button1t-removebg-preview.png" id="4_s73bl"]
+[ext_resource type="Texture2D" uid="uid://dnj3gfhq06xu3" path="res://assets/background/button1.png" id="4_wsu38"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
 texture = ExtResource("2_y0t42")
@@ -66,7 +68,7 @@ offset_left = 3.0
 offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3gga1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=448514704]
 layout_mode = 1
@@ -75,42 +77,102 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -123.0
-offset_top = -56.0
-offset_right = 151.0
-offset_bottom = 78.0
+offset_left = -187.0
+offset_top = -113.5
+offset_right = 187.0
+offset_bottom = 113.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=2035107038]
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_3dus0")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Start game"
-icon = SubResource("ImageTexture_8b5ne")
+texture_normal = ExtResource("4_wsu38")
+texture_hover = ExtResource("4_s73bl")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2056926308]
+[node name="Label" type="Label" parent="VBoxContainer/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_1sglo")
+theme_override_font_sizes/font_size = 35
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_ripxp")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Quit"
+texture_normal = ExtResource("4_wsu38")
+texture_hover = ExtResource("4_s73bl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_1sglo")
+theme_override_font_sizes/font_size = 35
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_wsu38")
+texture_hover = ExtResource("4_s73bl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_1sglo")
+theme_override_font_sizes/font_size = 35
+text = "QUIT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_progress_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
