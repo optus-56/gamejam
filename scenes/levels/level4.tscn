@@ -3911,14 +3911,11 @@ size = Vector2(99.5, 108)
 [node name="level4" type="Node2D" unique_id=1069982288]
 script = ExtResource("1_ahaer")
 
-[node name="level4" type="Node2D"]
-script = ExtResource("1_g1ckg")
-
-[node name="Player" parent="." instance=ExtResource("5_4vryo")]
+[node name="Player" parent="." unique_id=110342343 instance=ExtResource("2_wt4k6")]
 z_index = 4
 position = Vector2(-99, 3)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=177491936]
 position = Vector2(-5, -121)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
