@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://d0vcnh8j8v8jn"]
+[gd_scene load_steps=12 format=3 uid="uid://d0vcnh8j8v8jn"]
 
-[ext_resource type="Script" uid="uid://cvjxe17vo1jjo" path="res://scripts/levels/level_3.gd" id="1_8w0pe"]
+[ext_resource type="Script" path="res://scripts/levels/level_3.gd" id="1_8w0pe"]
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_522sc"]
 [ext_resource type="TileSet" uid="uid://bkk8th04h8abe" path="res://assets/tilemaps/third_level_tile_set.tres" id="3_7eb4w"]
-[ext_resource type="Script" uid="uid://ersbh2xnbxq1" path="res://scripts/doors/door3.gd" id="4_hadiw"]
+[ext_resource type="Script" path="res://scripts/doors/door3.gd" id="4_hadiw"]
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/characters/knight.tscn" id="6_72x3h"]
 [ext_resource type="PackedScene" uid="uid://ftuybvilq1da" path="res://scenes/spike.tscn" id="7_wb0vq"]
 [ext_resource type="PackedScene" uid="uid://dah4nf8rq67pr" path="res://scenes/sawblade.tscn" id="8_ah4rv"]
@@ -19,20 +19,20 @@ distance = -229.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ok6xr"]
 normal = Vector2(-1, 0)
 
-[node name="level3" type="Node2D" unique_id=734862753]
+[node name="level3" type="Node2D"]
 script = ExtResource("1_8w0pe")
 
-[node name="Player" parent="." unique_id=1580455860 instance=ExtResource("2_522sc")]
+[node name="Player" parent="." instance=ExtResource("2_522sc")]
 position = Vector2(6, 349)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=556775652]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-30, -51)
 zoom = Vector2(3, 3)
 limit_left = -467
 limit_right = 2880
 limit_bottom = 410
 
-[node name="TileMap" type="TileMap" parent="." unique_id=852944247]
+[node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, -5)
 tile_set = ExtResource("3_7eb4w")
 format = 2
@@ -47,117 +47,117 @@ layer_3/name = "Layer2"
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(-3669840, 1376262, 7, -3604304, 1376262, 8, -3538768, 1376262, 9, -3473232, 1376262, 10, -3669839, 1441798, 7, -3604303, 1441798, 8, -3538767, 1441798, 9, -3473231, 1441798, 10, -3669838, 1507334, 7, -3604302, 1507334, 8, -3538766, 1507334, 9, -3473230, 1507334, 10)
 
-[node name="Door" type="Area2D" parent="." unique_id=385452084]
+[node name="Door" type="Area2D" parent="."]
 collision_layer = 4
 script = ExtResource("4_hadiw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=959491452]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 z_index = 2
 position = Vector2(2837, -863.25)
 shape = SubResource("RectangleShape2D_2k3dv")
 
-[node name="Mobs" type="Node" parent="." unique_id=1392238680]
+[node name="Mobs" type="Node" parent="."]
 
-[node name="Mushroom" parent="Mobs" unique_id=2075485354 instance=ExtResource("12_fhpi3")]
+[node name="Mushroom" parent="Mobs" instance=ExtResource("12_fhpi3")]
 position = Vector2(2446, -851)
 
-[node name="Mushroom2" parent="Mobs" unique_id=647472348 instance=ExtResource("12_fhpi3")]
+[node name="Mushroom2" parent="Mobs" instance=ExtResource("12_fhpi3")]
 position = Vector2(2059, 122)
 
-[node name="Mushroom3" parent="Mobs" unique_id=707567725 instance=ExtResource("12_fhpi3")]
+[node name="Mushroom3" parent="Mobs" instance=ExtResource("12_fhpi3")]
 position = Vector2(1220, -244)
 
-[node name="Mushroom4" parent="Mobs" unique_id=913622376 instance=ExtResource("12_fhpi3")]
+[node name="Mushroom4" parent="Mobs" instance=ExtResource("12_fhpi3")]
 position = Vector2(1475, -373)
 
-[node name="Mushroom5" parent="Mobs" unique_id=838170444 instance=ExtResource("12_fhpi3")]
+[node name="Mushroom5" parent="Mobs" instance=ExtResource("12_fhpi3")]
 position = Vector2(2066, -916)
 
-[node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("6_72x3h")]
+[node name="Knight" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(1499, -29)
 
-[node name="Knight2" parent="Mobs" unique_id=1544452981 instance=ExtResource("6_72x3h")]
+[node name="Knight2" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(1842, -453)
 
-[node name="Knight5" parent="Mobs" unique_id=1670305271 instance=ExtResource("6_72x3h")]
+[node name="Knight5" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(1591, -969)
 
-[node name="Knight6" parent="Mobs" unique_id=1071920846 instance=ExtResource("6_72x3h")]
+[node name="Knight6" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(939, -906)
 
-[node name="Knight3" parent="Mobs" unique_id=1839899739 instance=ExtResource("6_72x3h")]
+[node name="Knight3" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(1099, -621)
 
-[node name="Knight4" parent="Mobs" unique_id=1948251854 instance=ExtResource("6_72x3h")]
+[node name="Knight4" parent="Mobs" instance=ExtResource("6_72x3h")]
 position = Vector2(656, -618)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2102025367]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-46, -32)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=661696796]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(166, 275)
 shape = SubResource("WorldBoundaryShape2D_d5djh")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1849161780]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2907, -880)
 shape = SubResource("WorldBoundaryShape2D_ok6xr")
 
-[node name="spikes" type="Node" parent="." unique_id=2015647003]
+[node name="spikes" type="Node" parent="."]
 
-[node name="spikes" parent="spikes" unique_id=924782784 instance=ExtResource("7_wb0vq")]
+[node name="spikes" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(2239, 342)
 scale = Vector2(3, 3)
 
-[node name="spikes5" parent="spikes" unique_id=475821397 instance=ExtResource("7_wb0vq")]
-position = Vector2(548, -908.00006)
+[node name="spikes5" parent="spikes" instance=ExtResource("7_wb0vq")]
+position = Vector2(548, -908)
 scale = Vector2(3, 3)
 
-[node name="spikes6" parent="spikes" unique_id=1161672222 instance=ExtResource("7_wb0vq")]
+[node name="spikes6" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(412, -909)
 scale = Vector2(3, 3)
 
-[node name="spikes7" parent="spikes" unique_id=958555270 instance=ExtResource("7_wb0vq")]
+[node name="spikes7" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(1075, -907)
 scale = Vector2(3, 3)
 
-[node name="spikes8" parent="spikes" unique_id=671018759 instance=ExtResource("7_wb0vq")]
+[node name="spikes8" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(644, -908)
 scale = Vector2(3, 3)
 
-[node name="spikes9" parent="spikes" unique_id=532861792 instance=ExtResource("7_wb0vq")]
+[node name="spikes9" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(1242, -972)
 scale = Vector2(3, 3)
 
-[node name="spikes10" parent="spikes" unique_id=2111477098 instance=ExtResource("7_wb0vq")]
-position = Vector2(1790.0001, -971)
+[node name="spikes10" parent="spikes" instance=ExtResource("7_wb0vq")]
+position = Vector2(1790, -971)
 scale = Vector2(3, 3)
 
-[node name="spikes2" parent="spikes" unique_id=45424839 instance=ExtResource("7_wb0vq")]
+[node name="spikes2" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(2193, 342)
 scale = Vector2(3, 3)
 
-[node name="spikes3" parent="spikes" unique_id=1235607766 instance=ExtResource("7_wb0vq")]
+[node name="spikes3" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(2147, 343)
 scale = Vector2(3, 3)
 
-[node name="spikes4" parent="spikes" unique_id=2103739253 instance=ExtResource("7_wb0vq")]
+[node name="spikes4" parent="spikes" instance=ExtResource("7_wb0vq")]
 position = Vector2(2102, 343)
 scale = Vector2(3, 3)
 
-[node name="sawblade" parent="spikes" unique_id=255564294 instance=ExtResource("8_ah4rv")]
+[node name="sawblade" parent="spikes" instance=ExtResource("8_ah4rv")]
 position = Vector2(1631, -354)
 scale = Vector2(1.8, 1.8)
 
-[node name="sawblade2" parent="spikes" unique_id=324807798 instance=ExtResource("8_ah4rv")]
-position = Vector2(1371.0001, -258)
+[node name="sawblade2" parent="spikes" instance=ExtResource("8_ah4rv")]
+position = Vector2(1371, -258)
 scale = Vector2(1.8, 1.8)
 
-[node name="sawblade3" parent="spikes" unique_id=1660341981 instance=ExtResource("8_ah4rv")]
-position = Vector2(1901.0001, -927.00006)
+[node name="sawblade3" parent="spikes" instance=ExtResource("8_ah4rv")]
+position = Vector2(1901, -927)
 scale = Vector2(1.8, 1.8)
 
-[node name="Label" type="Label" parent="." unique_id=1608527383]
+[node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Press \"E\""

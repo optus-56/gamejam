@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgbenvv5828nw"]
+[gd_scene load_steps=8 format=3 uid="uid://dgbenvv5828nw"]
 
 [ext_resource type="Script" path="res://scripts/gameover.gd" id="1_d4465"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="1_xpart"]
@@ -14,44 +14,6 @@ font_size = 50
 font_color = Color(0.955752, 0.0662604, 0.196154, 1)
 outline_size = 3
 outline_color = Color(0.4262, 0, 0.0759984, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_2bl2c"]
-base_font = ExtResource("1_xpart")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3gd6"]
-bg_color = Color(0.363677, 0.363677, 0.363677, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1grv"]
-bg_color = Color(0.219157, 0.219157, 0.219157, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgjp6"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="ImageTexture" id="ImageTexture_ljwwb"]
-
-[sub_resource type="FontVariation" id="FontVariation_ema6i"]
-base_font = ExtResource("1_xpart")
 
 [node name="gameover" type="Control"]
 layout_mode = 3
@@ -85,51 +47,6 @@ offset_right = 1128.0
 offset_bottom = 475.0
 text = "YOU DIED !!!"
 label_settings = SubResource("LabelSettings_ptppk")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.486
-anchor_top = 0.488
-anchor_right = 0.486
-anchor_bottom = 0.488
-offset_left = -149.12
-offset_top = -31.04
-offset_right = 146.88
-offset_bottom = 116.96
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="Try_again" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_2bl2c")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxFlat_v3gd6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_x1grv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_jgjp6")
-text = "Try Again"
-icon = SubResource("ImageTexture_ljwwb")
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_ema6i")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = SubResource("StyleBoxFlat_v3gd6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_x1grv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_jgjp6")
-text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -199,7 +116,5 @@ text = "BACK
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Try_again" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Try_again" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

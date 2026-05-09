@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://cro5cp0evm8m4"]
+[gd_scene load_steps=18 format=3 uid="uid://x84g30cyxkfs"]
 
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="1_2yyxy"]
-[ext_resource type="PackedScene" uid="uid://cltvcl34ht6vt" path="res://scenes/npc.tscn" id="1_3pa2n"]
-[ext_resource type="Script" uid="uid://cipg62fvcnbln" path="res://scripts/opening_cinematic.gd" id="1_5au5e"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="1_3pa2n"]
+[ext_resource type="Script" path="res://scripts/opening_cinematic.gd" id="1_5au5e"]
 [ext_resource type="Texture2D" uid="uid://bkkb0u24sylog" path="res://assets/sprites/environment/greenforestbackground.png" id="2_5js87"]
 [ext_resource type="Texture2D" uid="uid://b4tvvhybo7dpb" path="res://assets/sprites/environment/Tree-Assets.png" id="3_3pa2n"]
 [ext_resource type="Texture2D" uid="uid://cb2jcsft8lwns" path="res://assets/sprites/environment/Mossy Tileset/Props-Rocks.png" id="4_5au5e"]
@@ -2391,20 +2391,20 @@ sources/0 = SubResource("TileSetAtlasSource_vmitm")
 normal = Vector2(1, 0)
 distance = 175.0
 
-[node name="OpeningCinematic" type="Node2D" unique_id=611664255]
+[node name="OpeningCinematic" type="Node2D"]
 script = ExtResource("1_5au5e")
 
-[node name="npc" parent="." unique_id=113715657 instance=ExtResource("1_3pa2n")]
+[node name="npc" parent="." instance=ExtResource("1_3pa2n")]
 z_index = 3
 position = Vector2(259, 12)
 collision_layer = 0
 collision_mask = 4
 
-[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_2yyxy")]
+[node name="Player" parent="." instance=ExtResource("1_2yyxy")]
 z_index = 4
 position = Vector2(215, 12)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=31147671]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, -87)
 scale = Vector2(2, 2)
 zoom = Vector2(2, 2)
@@ -2414,7 +2414,7 @@ limit_bottom = 77
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="DialogueBox" type="Control" parent="." unique_id=2144820749]
+[node name="DialogueBox" type="Control" parent="."]
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -2423,21 +2423,21 @@ offset_top = 12.0
 offset_right = 456.0
 offset_bottom = 36.0
 
-[node name="PanelContainer" type="PanelContainer" parent="DialogueBox" unique_id=1134998154]
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
 layout_mode = 0
 offset_right = 308.0
 offset_bottom = 23.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/PanelContainer" unique_id=968622274]
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/PanelContainer"]
 layout_mode = 2
 
-[node name="DialogueLabel" type="Label" parent="DialogueBox/PanelContainer/VBoxContainer" unique_id=1737574366]
+[node name="DialogueLabel" type="Label" parent="DialogueBox/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TileMap" type="TileMap" parent="." unique_id=58167554]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0qq71")
 format = 2
 layer_0/name = "main"
@@ -2452,7 +2452,7 @@ layer_3/name = "trees"
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(-589779, 655366, 0, -524243, 655366, 1, -458707, 655366, 2, -393171, 655366, 3, -327635, 655366, 4, -262099, 655366, 5, -196563, 655366, 6, -131027, 655366, 7, -65491, 655366, 8, 45, 655366, 9, -589778, 720902, 0, -524242, 720902, 1, -458706, 720902, 2, -393170, 720902, 3, -327634, 720902, 4, -262098, 720902, 5, -196562, 720902, 6, -131026, 720902, 7, -65490, 720902, 8, 46, 720902, 9, -851926, 1114118, 10, -786390, 1114118, 11, -851925, 1179654, 10, -786389, 1179654, 11, -917460, 1245190, 9, -851924, 1245190, 10, -786388, 1245190, 11, -917459, 1310726, 9, -851923, 1310726, 10, -786387, 1310726, 11, -917458, 1376262, 9, -851922, 1376262, 10, -786386, 1376262, 11, -917457, 1441798, 9, -851921, 1441798, 10, -786385, 1441798, 11, -851920, 1507334, 10, -786384, 1507334, 11, -851919, 1572870, 10, -786383, 1572870, 11)
 
-[node name="Label" type="Label" parent="." unique_id=1381287250]
+[node name="Label" type="Label" parent="."]
 z_index = 4
 offset_left = 230.0
 offset_top = -52.0
@@ -2461,8 +2461,8 @@ offset_bottom = -29.0
 theme_override_font_sizes/font_size = 10
 text = "E to interact"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=174261167]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=306429772]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_5au5e")

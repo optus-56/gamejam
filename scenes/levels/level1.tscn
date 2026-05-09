@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqf18sr4tyydf"]
+[gd_scene load_steps=27 format=3 uid="uid://dqf18sr4tyydf"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_dywbp"]
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_1seuy"]
@@ -3994,6 +3994,51 @@ shape = SubResource("WorldBoundaryShape2D_2r1tl")
 position = Vector2(1735, -62)
 scale = Vector2(3, 3)
 
+[node name="spikes3" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1734, -62)
+scale = Vector2(3, 3)
+
+[node name="spikes4" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1978, -4.00001)
+scale = Vector2(3, 3)
+
+[node name="spikes8" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(2136, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes9" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(2024, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes5" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1373, -5.00001)
+scale = Vector2(3, 3)
+
+[node name="spikes6" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1325, -5)
+scale = Vector2(3, 3)
+
+[node name="spikes7" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1604, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes10" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1556, -4)
+scale = Vector2(3, 3)
+
+[node name="spikes11" parent="spikes" instance=ExtResource("7_2r1tl")]
+z_index = 2
+position = Vector2(1851, -64)
+scale = Vector2(3, 3)
+
 [node name="spikes2" parent="." instance=ExtResource("7_2r1tl")]
 position = Vector2(1847, -64)
 scale = Vector2(3, 3)
@@ -4027,98 +4072,53 @@ layer_3/tile_data = PackedInt32Array(-1179682, 1179650, 1, -1245215, 1179650, 4,
 [node name="Mushroom" parent="Mobs" instance=ExtResource("10_5ntmo")]
 position = Vector2(2544, -2)
 
-[node name="Mushroom2" parent="Mobs" unique_id=758543575 instance=ExtResource("10_5ntmo")]
+[node name="Mushroom2" parent="Mobs" instance=ExtResource("10_5ntmo")]
 position = Vector2(-99, -6)
 
-[node name="Knight" parent="Mobs" unique_id=1699918242 instance=ExtResource("13_ps2vj")]
+[node name="Knight" parent="Mobs" instance=ExtResource("13_ps2vj")]
 position = Vector2(545, 1)
 
-[node name="Mushroom3" parent="Mobs" unique_id=2055349077 instance=ExtResource("10_5ntmo")]
+[node name="Mushroom3" parent="Mobs" instance=ExtResource("10_5ntmo")]
 position = Vector2(1481, -62)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1086297163]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1342, -215)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=955262242]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1778, 138)
-rotation = 3.1415927
+rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_plydf")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=726595640]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(4630, -247)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=40882671]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-2107, 174)
 shape = SubResource("WorldBoundaryShape2D_plydf")
 
-[node name="spikes" type="Node" parent="." unique_id=619217192]
+[node name="spikes3" type="Node" parent="."]
 
-[node name="spikes3" parent="spikes" unique_id=924782784 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1734.0001, -62)
-scale = Vector2(3, 3)
+[node name="saws" type="Node" parent="."]
 
-[node name="spikes4" parent="spikes" unique_id=1848453839 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1978.0001, -4.0000076)
-scale = Vector2(3, 3)
-
-[node name="spikes8" parent="spikes" unique_id=748995121 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(2136, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes9" parent="spikes" unique_id=1340540947 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(2024, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes5" parent="spikes" unique_id=1856824530 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1373.0001, -5.0000076)
-scale = Vector2(3, 3)
-
-[node name="spikes6" parent="spikes" unique_id=1375888489 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1325, -5)
-scale = Vector2(3, 3)
-
-[node name="spikes7" parent="spikes" unique_id=1792889997 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1604, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes10" parent="spikes" unique_id=1818027461 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1556, -4)
-scale = Vector2(3, 3)
-
-[node name="spikes11" parent="spikes" unique_id=402960322 instance=ExtResource("7_2r1tl")]
-z_index = 2
-position = Vector2(1851.0001, -64)
-scale = Vector2(3, 3)
-
-[node name="saws" type="Node" parent="." unique_id=1476666839]
-
-[node name="sawblade5" parent="saws" unique_id=255564294 instance=ExtResource("8_8a7m2")]
+[node name="sawblade5" parent="saws" instance=ExtResource("8_8a7m2")]
 z_index = 2
 position = Vector2(1578, -45)
 
-[node name="sawblade6" parent="saws" unique_id=943431874 instance=ExtResource("8_8a7m2")]
+[node name="sawblade6" parent="saws" instance=ExtResource("8_8a7m2")]
 z_index = 2
 position = Vector2(1578, -218)
 
-[node name="sawblade7" parent="saws" unique_id=1267125835 instance=ExtResource("8_8a7m2")]
+[node name="sawblade7" parent="saws" instance=ExtResource("8_8a7m2")]
 z_index = 2
 position = Vector2(1344, -47)
 
-[node name="sawblade8" parent="saws" unique_id=1670591361 instance=ExtResource("8_8a7m2")]
+[node name="sawblade8" parent="saws" instance=ExtResource("8_8a7m2")]
 z_index = 2
 position = Vector2(1343, -214)
 
-[node name="Label" type="Label" parent="." unique_id=183797278]
+[node name="Label" type="Label" parent="."]
 offset_left = 2561.0
 offset_top = -81.0
 offset_right = 2630.0
