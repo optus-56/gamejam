@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cltvcl34ht6vt"]
+[gd_scene load_steps=21 format=3 uid="uid://d28x2oipg44j8"]
 
 [ext_resource type="Texture2D" uid="uid://dfl6gpvqqydpe" path="res://assets/sprites/npc/Idle3/1.png" id="1_7n8xq"]
-[ext_resource type="Script" uid="uid://gbf5yvx3s8s8" path="res://scripts/characters/npc.gd" id="1_sptji"]
+[ext_resource type="Script" path="res://scripts/characters/npc.gd" id="1_sptji"]
 [ext_resource type="Texture2D" uid="uid://b3rkbawb5oiyf" path="res://assets/sprites/npc/Idle3/2.png" id="2_4wlns"]
 [ext_resource type="Texture2D" uid="uid://ce1xww5tmxlut" path="res://assets/sprites/npc/Idle3/3.png" id="3_tl2vt"]
 [ext_resource type="Texture2D" uid="uid://gwchpfm11mfi" path="res://assets/sprites/npc/Idle3/4.png" id="4_hwkja"]
@@ -80,30 +80,30 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tygy"]
-radius = 23.345236
+radius = 23.3452
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tygy"]
 size = Vector2(108, 51)
 
-[node name="npc" type="CharacterBody2D" unique_id=113715657]
+[node name="npc" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_sptji")
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=971416622]
-position = Vector2(1.0000005, -27)
-scale = Vector2(0.7659575, 0.83516484)
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -27)
+scale = Vector2(0.765957, 0.835165)
 sprite_frames = SubResource("SpriteFrames_gl1un")
 animation = &"speak"
 autoplay = "idle"
-frame_progress = 0.15209861
+frame_progress = 0.152099
 
-[node name="collisionshape" type="CollisionShape2D" parent="." unique_id=1304756038]
+[node name="collisionshape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -22)
 shape = SubResource("CircleShape2D_0tygy")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=951854178]
+[node name="InteractionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=185986325]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_0tygy")

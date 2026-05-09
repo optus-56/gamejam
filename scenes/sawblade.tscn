@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dah4nf8rq67pr"]
+[gd_scene load_steps=13 format=3 uid="uid://dah4nf8rq67pr"]
 
 [ext_resource type="PackedScene" uid="uid://bsiot8o0bnp2g" path="res://scenes/killzone.tscn" id="1_2q6p5"]
 [ext_resource type="Texture2D" uid="uid://dxtphsgxetq1q" path="res://assets/sprites/environment/On (38x38).png" id="1_jbc87"]
@@ -70,14 +70,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbc87"]
 radius = 19.0
 
-[node name="sawblade" type="Node2D" unique_id=255564294]
+[node name="sawblade" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938728584]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r58yt")
 autoplay = "default"
-frame_progress = 0.57597953
+frame_progress = 0.57598
 
-[node name="Killzone" parent="." unique_id=1816563586 instance=ExtResource("1_2q6p5")]
+[node name="Killzone" parent="." instance=ExtResource("1_2q6p5")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1552701878]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("CircleShape2D_jbc87")

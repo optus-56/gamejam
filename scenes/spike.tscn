@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://ftuybvilq1da"]
+[gd_scene load_steps=3 format=3 uid="uid://ftuybvilq1da"]
 
 [ext_resource type="Texture2D" uid="uid://214y61wpnv07" path="res://assets/sprites/environment/Idle.png" id="1_7a7y0"]
 [ext_resource type="PackedScene" uid="uid://bsiot8o0bnp2g" path="res://scenes/killzone.tscn" id="2_d2mqm"]
 
-[node name="spikes" type="Node2D" unique_id=924782784]
+[node name="spikes" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=952963382]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("1_7a7y0")
 
-[node name="Killzone" parent="." unique_id=1816563586 instance=ExtResource("2_d2mqm")]
+[node name="Killzone" parent="." instance=ExtResource("2_d2mqm")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone" unique_id=1212487099]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
 polygon = PackedVector2Array(-8, 0, -8, -2, -6, -6, -5, -7, -4, -7, -3, -6, -1, -2, 0, -2, 2, -6, 3, -7, 4, -7, 5, -6, 7, -2, 7, 0)

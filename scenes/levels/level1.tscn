@@ -4040,7 +4040,7 @@ position = Vector2(1851, -64)
 scale = Vector2(3, 3)
 
 [node name="spikes2" parent="." instance=ExtResource("7_2r1tl")]
-position = Vector2(1847, -64)
+position = Vector2(1864, -64)
 scale = Vector2(3, 3)
 
 [node name="sawblade" parent="." instance=ExtResource("8_8a7m2")]

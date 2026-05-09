@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bn7rdlbsw3hs4"]
+[gd_scene load_steps=9 format=3 uid="uid://bn7rdlbsw3hs4"]
 
 [ext_resource type="Texture2D" uid="uid://7cdvxkr6e303" path="res://assets/sprites/mobs/huntress/Spear move.png" id="1_43rot"]
-[ext_resource type="Script" uid="uid://dcg41jhrqxgxw" path="res://scripts/spear.gd" id="1_uf2bl"]
+[ext_resource type="Script" path="res://scripts/spear.gd" id="1_uf2bl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uf2bl"]
 atlas = ExtResource("1_43rot")
@@ -42,16 +42,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng344"]
 size = Vector2(41, 7)
 
-[node name="Spear" type="CharacterBody2D" unique_id=296479887]
+[node name="Spear" type="CharacterBody2D"]
 script = ExtResource("1_uf2bl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1095173364]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
 sprite_frames = SubResource("SpriteFrames_7ktm6")
 animation = &"spin"
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=720917733]
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1261718033]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1.5, -10.5)
 shape = SubResource("RectangleShape2D_ng344")

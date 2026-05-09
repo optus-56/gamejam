@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://di3jvxmqkp581"]
+[gd_scene load_steps=3 format=3 uid="uid://di3jvxmqkp581"]
 
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="1_hfe2k"]
 [ext_resource type="TileSet" uid="uid://dl7q87vc6om2s" path="res://assets/tilemaps/new_tile_set.tres" id="2_aw0oj"]
 
-[node name="second_level" type="Node2D" unique_id=760758128]
+[node name="second_level" type="Node2D"]
 
-[node name="Player" parent="." unique_id=1987826405 instance=ExtResource("1_hfe2k")]
+[node name="Player" parent="." instance=ExtResource("1_hfe2k")]
 position = Vector2(472, -406)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=153498366]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, -69)
 zoom = Vector2(2, 2)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=842504850]
+[node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, -13)
 tile_set = ExtResource("2_aw0oj")
 format = 2

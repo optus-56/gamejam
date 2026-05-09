@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://x84g30cyxkfs"]
+[gd_scene load_steps=18 format=3 uid="uid://cb3vmshxcp1dq"]
 
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="1_2yyxy"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="1_3pa2n"]
+[ext_resource type="PackedScene" uid="uid://d28x2oipg44j8" path="res://scenes/npc.tscn" id="1_3pa2n"]
 [ext_resource type="Script" path="res://scripts/opening_cinematic.gd" id="1_5au5e"]
 [ext_resource type="Texture2D" uid="uid://bkkb0u24sylog" path="res://assets/sprites/environment/greenforestbackground.png" id="2_5js87"]
 [ext_resource type="Texture2D" uid="uid://b4tvvhybo7dpb" path="res://assets/sprites/environment/Tree-Assets.png" id="3_3pa2n"]

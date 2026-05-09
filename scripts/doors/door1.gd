@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 func go_to_next_level():
 	var level = 2
 	
-	var file = FileAccess.open("res://level.txt", FileAccess.WRITE)
+	var file = FileAccess.open("user://level.txt", FileAccess.WRITE)
 	
 	if file == null:
 		print("File open failed: ", FileAccess.get_open_error())
@@ -37,6 +37,6 @@ func go_to_next_level():
 	file.close()
 	
 	print("Saved level: ", level)
-	print("File path: ", ProjectSettings.globalize_path("res://level.txt"))
+	print("File path: ", ProjectSettings.globalize_path("user://level.txt"))
 	
 	get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
