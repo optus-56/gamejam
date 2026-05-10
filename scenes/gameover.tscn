@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgbenvv5828nw"]
+[gd_scene format=3 uid="uid://dgbenvv5828nw"]
 
-[ext_resource type="Script" path="res://scripts/gameover.gd" id="1_d4465"]
+[ext_resource type="Script" uid="uid://bip2de5c1kos" path="res://scripts/gameover.gd" id="1_d4465"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="1_xpart"]
 [ext_resource type="Texture2D" uid="uid://dfqs0rch66u6" path="res://assets/background/gameoverbg.png" id="3_c7got"]
 [ext_resource type="Texture2D" uid="uid://doy2mqfuym2k" path="res://assets/background/borderoutline.png" id="3_nimra"]
@@ -15,7 +15,7 @@ font_color = Color(0.955752, 0.0662604, 0.196154, 1)
 outline_size = 3
 outline_color = Color(0.4262, 0, 0.0759984, 1)
 
-[node name="gameover" type="Control"]
+[node name="gameover" type="Control" unique_id=369433825]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_d4465")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1156154183]
 layout_mode = 0
 offset_left = -64.0
 offset_top = -40.0
@@ -34,12 +34,12 @@ offset_right = 1968.0
 offset_bottom = 1136.0
 texture = ExtResource("3_c7got")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=848207726]
 position = Vector2(936, 524)
 scale = Vector2(0.40625, 0.554687)
 texture = ExtResource("3_nimra")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1668475851]
 layout_mode = 0
 offset_left = 768.0
 offset_top = 384.0
@@ -48,7 +48,7 @@ offset_bottom = 475.0
 text = "YOU DIED !!!"
 label_settings = SubResource("LabelSettings_ptppk")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1274530994]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.375
@@ -60,7 +60,7 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="Try_again" type="TextureButton" parent="VBoxContainer2"]
+[node name="Try_again" type="TextureButton" parent="VBoxContainer2" unique_id=876108763]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("5_0h2xn")
@@ -68,17 +68,17 @@ texture_hover = ExtResource("6_vthfc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer2/Try_again"]
+[node name="Label" type="Label" parent="VBoxContainer2/Try_again" unique_id=389003213]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -32.0
-offset_right = 52.5
-offset_bottom = 32.0
+offset_left = -91.5
+offset_top = -36.000427
+offset_right = 97.5
+offset_bottom = 94.99957
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_xpart")
@@ -88,7 +88,7 @@ text = "TRY AGAIN
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="TextureButton" parent="VBoxContainer2"]
+[node name="quit" type="TextureButton" parent="VBoxContainer2" unique_id=1779183687]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("5_0h2xn")
@@ -96,25 +96,24 @@ texture_hover = ExtResource("6_vthfc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer2/Quit"]
+[node name="Label" type="Label" parent="VBoxContainer2/quit" unique_id=1168295675]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -32.0
-offset_right = 52.5
-offset_bottom = 32.0
+offset_left = -49.5
+offset_top = -39.500427
+offset_right = 55.5
+offset_bottom = 24.499573
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_xpart")
 theme_override_font_sizes/font_size = 35
-text = "BACK
-"
+text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer2/Try_again" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer2/quit" to="." method="_on_try_again_pressed"]

@@ -1,28 +1,18 @@
 extends Control
 
-func _on_try_again_pressed() -> void:
+@onready var try_again: TextureButton = $VBoxContainer2/Try_again
+@onready var quit: TextureButton = $VBoxContainer2/quit
 
-	if FileAccess.file_exists("user://level.txt"):
-		var file = FileAccess.open("user://level.txt", FileAccess.READ)
-		var level = int(file.get_as_text())
-		file.close()
-		if level == 0:
-			get_tree().change_scene_to_file("res://scenes/levels/opening_cinematic.tscn")
-		elif level == 1:
-			get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
-		elif level == 2:
-			get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
-		elif level == 3:
-			get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
-		elif level == 4:
-			get_tree().change_scene_to_file("res://scenes/levels/level4.tscn")
-		else:
-			print("Invalid level: ", level)
-		print("Loaded level: ", level)
+func _ready():
+	try_again.pressed.connect(_on_try_again_pressed)
+	if quit:
+		quit.pressed.connect(_on_quit_pressed)
+
+func _on_try_again_pressed():
+	if Global.last_level_path != "":
+		get_tree().change_scene_to_file(Global.last_level_path)
 	else:
-		print("No level file found")
 		get_tree().change_scene_to_file("res://scenes/levels/opening_cinematic.tscn")
 
-func _on_quit_pressed() -> void:
+func _on_quit_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	

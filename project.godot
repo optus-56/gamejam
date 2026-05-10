@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="gamejam"
 run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 
 [audio]
 
@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://vjp4auad2raf"
 
 Music="*uid://cw7doqaeigcp3"
 Events="*uid://bt8oudkq3wdfi"
+Global="*uid://cevtyk7h6rx10"
 
 [display]
 
