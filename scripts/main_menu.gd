@@ -41,4 +41,4 @@ func _on_restart_progress_pressed() -> void:
 	print("Saved level: ", level)
 	print("File path: ", ProjectSettings.globalize_path("res://level.txt"))
 	
-	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/opening_cinematic.tscn")
