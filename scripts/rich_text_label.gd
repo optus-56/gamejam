@@ -1,25 +1,15 @@
 extends RichTextLabel
 
-var text_credits = "THANK YOU FOR PLAYING
+var text_credits = "THANK YOU FOR PLAYING OUR GAME
 
 A Game By
 
 
-Game Design
+Bijan Thapa
 
+Samyak Maharjan
 
-Programming
-
-Art & UI Design
-
-
-Music & Sound Effects
-
-
-Special Thanks
-
-
-Made with Godot Engine
+Prabin Thapa
 
 THE END"
 

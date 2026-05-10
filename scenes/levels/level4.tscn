@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://dfn2vw2lesmwg"]
+[gd_scene format=3 uid="uid://dfn2vw2lesmwg"]
 
-[ext_resource type="Script" path="res://scripts/levels/level_4.gd" id="1_ahaer"]
+[ext_resource type="Script" uid="uid://wi3gprt01i35" path="res://scripts/levels/level_4.gd" id="1_ahaer"]
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/characters/player.tscn" id="2_wt4k6"]
 [ext_resource type="Texture2D" uid="uid://dsnw2pinwvtjc" path="res://assets/sprites/environment/doors.png" id="3_wo5bm"]
 [ext_resource type="Texture2D" uid="uid://by11vbx0tsrwf" path="res://assets/sprites/environment/spr_portal_strip8.png" id="4_edoqj"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://7aa3i23fanxy" path="res://scenes/characters/knight.tscn" id="15_lsxft"]
 [ext_resource type="PackedScene" uid="uid://dqrdm7xahiyox" path="res://scenes/characters/huntress.tscn" id="16_rfqup"]
 [ext_resource type="PackedScene" uid="uid://ncre74ks1c6s" path="res://scenes/characters/nightbourne.tscn" id="16_y3vdi"]
-[ext_resource type="Script" path="res://scripts/doors/door4.gd" id="17_0y7c6"]
+[ext_resource type="Script" uid="uid://be3phhgdgeclv" path="res://scripts/doors/door4.gd" id="17_0y7c6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4dsi"]
 texture = ExtResource("3_wo5bm")
@@ -3908,20 +3908,20 @@ sources/0 = SubResource("TileSetAtlasSource_s4dsi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8kv5"]
 size = Vector2(99.5, 108)
 
-[node name="level4" type="Node2D"]
+[node name="level4" type="Node2D" unique_id=1090271429]
 script = ExtResource("1_ahaer")
 
-[node name="Player" parent="." instance=ExtResource("2_wt4k6")]
+[node name="Player" parent="." unique_id=1428490257 instance=ExtResource("2_wt4k6")]
 z_index = 4
 position = Vector2(-99, 3)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1833425106]
 position = Vector2(-5, -121)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=1773765518]
 position = Vector2(2, 1)
 tile_set = SubResource("TileSet_lbhrr")
 format = 2
@@ -3937,37 +3937,45 @@ layer_2/tile_data = PackedInt32Array(-1245188, 9, 0, -1179652, 9, 1, -1114116, 9
 layer_3/name = "fences"
 layer_3/tile_data = PackedInt32Array(-196620, 8, 15, -131084, 8, 16, -65548, 8, 17, -12, 8, 18, 65524, 8, 19, -196619, 65544, 15, -131083, 65544, 16, -65547, 65544, 17, -11, 65544, 18, 65525, 65544, 19, -196618, 131080, 15, -131082, 131080, 16, -65546, 131080, 17, -10, 131080, 18, 65526, 131080, 19, -196617, 196616, 15, -131081, 196616, 16, -65545, 196616, 17, -9, 196616, 18, 65527, 196616, 19, -196616, 8, 15, -131080, 8, 16, -65544, 8, 17, -8, 8, 18, 65528, 8, 19, -196615, 65544, 15, -131079, 65544, 16, -65543, 65544, 17, -7, 65544, 18, 65529, 65544, 19, -196614, 131080, 15, -131078, 131080, 16, -65542, 131080, 17, -6, 131080, 18, 65530, 131080, 19, -196613, 196616, 15, -131077, 196616, 16, -65541, 196616, 17, -5, 196616, 18, 65531, 196616, 19)
 
-[node name="Mobs" type="Node" parent="."]
+[node name="Mobs" type="Node" parent="." unique_id=1937247598]
 
-[node name="Mushroom" parent="Mobs" instance=ExtResource("13_flme0")]
+[node name="Mushroom" parent="Mobs" unique_id=837903574 instance=ExtResource("13_flme0")]
 position = Vector2(230, 3)
 
-[node name="king" parent="Mobs" instance=ExtResource("14_0qxt0")]
+[node name="king" parent="Mobs" unique_id=1462752420 instance=ExtResource("14_0qxt0")]
 position = Vector2(1121, -606)
 
-[node name="Knight" parent="Mobs" instance=ExtResource("15_lsxft")]
+[node name="Knight" parent="Mobs" unique_id=1244435941 instance=ExtResource("15_lsxft")]
 position = Vector2(589, -231)
 
-[node name="huntress" parent="Mobs" instance=ExtResource("16_rfqup")]
+[node name="huntress" parent="Mobs" unique_id=842812400 instance=ExtResource("16_rfqup")]
 position = Vector2(158, -241)
 
-[node name="Nightbourne" parent="Mobs" instance=ExtResource("16_y3vdi")]
+[node name="Nightbourne" parent="Mobs" unique_id=1627972728 instance=ExtResource("16_y3vdi")]
 position = Vector2(728, -607)
 
-[node name="Nightbourne2" parent="Mobs" instance=ExtResource("16_y3vdi")]
+[node name="Nightbourne2" parent="Mobs" unique_id=1579888398 instance=ExtResource("16_y3vdi")]
 position = Vector2(281, -610)
 
-[node name="Ninja" parent="Mobs" instance=ExtResource("12_6vxnv")]
-position = Vector2(1074, -238)
+[node name="Ninja" parent="Mobs" unique_id=763019507 instance=ExtResource("12_6vxnv")]
+position = Vector2(978, -238)
 
-[node name="Knight2" parent="Mobs" instance=ExtResource("15_lsxft")]
+[node name="Knight2" parent="Mobs" unique_id=815071598 instance=ExtResource("15_lsxft")]
 position = Vector2(696, 2)
 
-[node name="Door" type="Area2D" parent="."]
+[node name="Door" type="Area2D" parent="." unique_id=1096243219]
 collision_layer = 4
 script = ExtResource("17_0y7c6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=231126825]
 z_index = 2
 position = Vector2(1311.25, -666)
 shape = SubResource("RectangleShape2D_i8kv5")
+
+[node name="Label" type="Label" parent="." unique_id=1108684630]
+z_index = 5
+offset_left = 1189.0
+offset_top = -711.0
+offset_right = 1258.0
+offset_bottom = -688.0
+text = "Press \"E\""

@@ -197,7 +197,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack1",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -214,7 +214,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack2",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,7 +231,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack3",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -370,10 +370,8 @@ script = ExtResource("1_7lhro")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1767293556]
 position = Vector2(-3, -50)
 sprite_frames = SubResource("SpriteFrames_tsa24")
-animation = &"attack3"
+animation = &"hit"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446208138]
 position = Vector2(0, -27)

@@ -1,20 +1,14 @@
 extends Label
 
-var text_credits = "THANK YOU FOR PLAYING
+var text_credits = "THANK YOU FOR PLAYING OUR GAME
 
 A Game By
 
-Game Design
+Bijan Thapa
 
-Programming
+Samyak Maharjan
 
-Art & UI Design
-
-Music & Sound Effects
-
-Special Thanks
-
-Made with Godot Engine
+Prabin Thapa
 
 THE END"
 

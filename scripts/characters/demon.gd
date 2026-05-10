@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 100
-const DAMAGE := 1
+const DAMAGE := 3
 const ATTACK_COOLDOWN := 0.4
 const GRAVITY := 800.0
 const ATTACK_RANGE := 80.0  # Distance to trigger attack
@@ -12,7 +12,7 @@ const HIT_FRAME: Array[int] = [9,10,11,12,13]
 # Health bar
 const HEALTH_BAR_WIDTH := 40
 const HEALTH_BAR_HEIGHT := 4
-const HEALTH_BAR_OFFSET_Y := -62  # Offset above the mob
+const HEALTH_BAR_OFFSET_Y := -130  # Offset above the mob
 
 # HP + reactions
 var max_hp: int = 10

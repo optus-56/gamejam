@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 100
-const ATTACK_DAMAGE := 1
+const ATTACK_DAMAGE := 2
 const DEATH_DAMAGE := 3
 const ATTACK_COOLDOWN := 0.4
 const GRAVITY := 800.0

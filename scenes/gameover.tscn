@@ -83,12 +83,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_xpart")
 theme_override_font_sizes/font_size = 35
-text = "TRY AGAIN
+text = "Try Again
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="quit" type="TextureButton" parent="VBoxContainer2" unique_id=1779183687]
+[node name="quit" type="TextureButton" parent="VBoxContainer2" unique_id=588444117]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("5_0h2xn")
@@ -96,24 +96,25 @@ texture_hover = ExtResource("6_vthfc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer2/quit" unique_id=1168295675]
+[node name="Label" type="Label" parent="VBoxContainer2/quit" unique_id=298863389]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.5
-offset_top = -39.500427
-offset_right = 55.5
-offset_bottom = 24.499573
+offset_left = -91.5
+offset_top = -36.000427
+offset_right = 97.5
+offset_bottom = 94.99957
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_xpart")
 theme_override_font_sizes/font_size = 35
-text = "Quit"
+text = "Quit
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer2/Try_again" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="VBoxContainer2/quit" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="VBoxContainer2/quit" to="." method="_on_quit_pressed"]

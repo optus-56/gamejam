@@ -52,8 +52,8 @@ var air_dash_available := true
 var last_wall_jump_side := 0
 
 # HP system
-var max_hp: int = 15
-var hp: int = 15
+var max_hp: int = 10
+var hp: int = 10
 var invincible: bool = false
 const IFRAME_TIME: float = 0.4
 

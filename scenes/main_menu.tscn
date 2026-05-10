@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqoqlfciota60"]
+[gd_scene format=3 uid="uid://cqoqlfciota60"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://354wdxoui32x" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://c5383dxd4wfeo" path="res://assets/background/mainmenubg.png" id="2_301xn"]
 [ext_resource type="FontFile" uid="uid://cnimvi1ihyh12" path="res://assets/Kubasta.ttf" id="3_1sglo"]
 [ext_resource type="Texture2D" uid="uid://ddwsv5dkfqp1n" path="res://assets/background/button1t-removebg-preview.png" id="4_s73bl"]
 [ext_resource type="Texture2D" uid="uid://dnj3gfhq06xu3" path="res://assets/background/button1.png" id="4_wsu38"]
+[ext_resource type="FontFile" uid="uid://btx4phx2p6qhu" path="res://assets/PixeloidSans-Bold.ttf" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gga1"]
 texture = ExtResource("2_301xn")
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1048915625]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1175837513]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,22 +32,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3gga1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1904667819]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -187.0
-offset_top = -113.5
-offset_right = 187.0
-offset_bottom = 113.5
+offset_left = -191.0
+offset_top = -57.0
+offset_right = 183.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Start" type="TextureButton" parent="VBoxContainer"]
+[node name="Start" type="TextureButton" parent="VBoxContainer" unique_id=954113440]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("4_wsu38")
@@ -54,7 +55,7 @@ texture_hover = ExtResource("4_s73bl")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/Start"]
+[node name="Label" type="Label" parent="VBoxContainer/Start" unique_id=1176197855]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +76,7 @@ text = "START"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Restart" type="TextureButton" parent="VBoxContainer"]
+[node name="quit" type="TextureButton" parent="VBoxContainer" unique_id=10302033]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("4_wsu38")
@@ -83,46 +84,17 @@ texture_hover = ExtResource("4_s73bl")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/Restart"]
+[node name="Label" type="Label" parent="VBoxContainer/quit" unique_id=653099413]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.5
-offset_top = -32.0
-offset_right = 73.5
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 4
-theme_override_fonts/font = ExtResource("3_1sglo")
-theme_override_font_sizes/font_size = 35
-text = "RESTART"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="quit" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("4_wsu38")
-texture_hover = ExtResource("4_s73bl")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/quit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -32.0
-offset_right = 52.5
-offset_bottom = 32.0
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 57.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/shadow_offset_x = 4
@@ -134,6 +106,16 @@ text = "QUIT
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameName" type="Label" parent="." unique_id=710882758]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 393.0
+offset_right = 1221.0
+offset_bottom = 480.0
+theme_override_colors/font_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("6_rtw2f")
+theme_override_font_sizes/font_size = 49
+text = "The Cursed Path"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_progress_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -5,8 +5,7 @@ extends Control
 
 func _ready():
 	try_again.pressed.connect(_on_try_again_pressed)
-	if quit:
-		quit.pressed.connect(_on_quit_pressed)
+	quit.pressed.connect(_on_quit_pressed)
 
 func _on_try_again_pressed():
 	if Global.last_level_path != "":

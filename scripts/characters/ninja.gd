@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 100
-const DAMAGE := 1
+const DAMAGE := 2
 const ATTACK_COOLDOWN := 0.4
 
 # Damage will happen when the "attack" animation reaches this frame (0-based)

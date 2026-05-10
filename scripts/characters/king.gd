@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 100
-const DAMAGE := 1
+const DAMAGE := 2
 const ATTACK_COOLDOWN := 0.4
 const JUMP_FORCE := -400.0  # Negative because up is negative Y
 const GRAVITY := 800.0
