@@ -98,7 +98,7 @@ func fade_out_and_transition() -> void:
 	
 	var level = 1
 	
-	var file = FileAccess.open("res://level.txt", FileAccess.WRITE)
+	var file = FileAccess.open("user://level.txt", FileAccess.WRITE)
 	
 	if file == null:
 		print("File open failed: ", FileAccess.get_open_error())
@@ -108,6 +108,6 @@ func fade_out_and_transition() -> void:
 	file.close()
 	
 	print("Saved level: ", level)
-	print("File path: ", ProjectSettings.globalize_path("res://level.txt"))
+	print("File path: ", ProjectSettings.globalize_path("user://level.txt"))
 	
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
